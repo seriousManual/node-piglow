@@ -1,0 +1,25 @@
+{
+  "name": "node-piglow",
+  "version": "0.0.0",
+  "description": "javascript interface for the piglow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaphod1984/node-piglow"
+  },
+  "keywords": [
+    "piglow",
+    "raspberry",
+    "pi",
+    "led",
+    "gpio"
+  ],
+  "author": "Manuel Ernst",
+  "license": "BSD",
+  "dependencies": {
+    "gpio": "~0.2.4"
+  }
+}
