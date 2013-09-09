@@ -1,4 +1,5 @@
 var seq = require('seq');
+var I2c = require('i2c');
 
 var PIGLOW_ADDRESS = 0x54;
 

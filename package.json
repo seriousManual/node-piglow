@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "javascript interface for the piglow",
   "main": "index.js",
-  "contributors": ["Manuel Ernst <zaphod84@gmx.de>"],
+  "contributors": [
+    "Manuel Ernst <zaphod84@gmx.de>"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/zaphod1984/node-piglow"
@@ -12,11 +14,11 @@
     "piglow",
     "raspberry",
     "pi",
-    "led",
-    "gpio"
+    "led"
   ],
   "license": "BSD",
   "dependencies": {
-    "gpio": "~0.2.4"
+    "i2c": "~0.1.4",
+    "seq": "~0.3.5"
   }
 }
