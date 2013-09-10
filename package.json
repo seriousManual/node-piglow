@@ -1,6 +1,6 @@
 {
   "name": "piglow",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "javascript interface for the piglow",
   "main": "index.js",
   "contributors": [
@@ -16,8 +16,13 @@
     "seq": "~0.3.5"
   },
   "devdependencies": {
-      "mocha": "~1.12.1",
-      "chai": "~1.7.2"
+    "mocha": "~1.12.1",
+    "chai": "~1.7.2"
   },
-  "keywords": ["piglow", "raspberry pi", "led", "i2c"]
+  "keywords": [
+    "piglow",
+    "raspberry pi",
+    "led",
+    "i2c"
+  ]
 }
