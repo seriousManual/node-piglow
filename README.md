@@ -13,7 +13,7 @@ This module offers an interface to control the individual LEDs.
 ## Installation
 
 ````bash
-$ npm install piglow (not yet)
+$ npm install piglow
 ````
 
 ## Setup
@@ -119,7 +119,7 @@ var myInterface = piGlowInterface.create(myMock);
 myInterface.ring_0 = 255;
 ```
 
-This way the module can be used in a non raspi environment for development or with a testing moch for unit tests.
+This way the module can be used in a non raspi environment for development or with a testing mock for unit tests.
 To implement your own mocks follow this interface:
 ```
 function PiGlowMock() {}
