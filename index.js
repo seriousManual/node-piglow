@@ -13,5 +13,6 @@ function createPiGlow(callback) {
 
 createPiGlow.BackendMock = PiGlowBackendMock;
 createPiGlow.Backend = PiGlowBackend;
+createPiGlow.piGlowInterface = piGlowInterface;
 
 module.exports = createPiGlow;
