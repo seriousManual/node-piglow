@@ -77,7 +77,7 @@ piGlow.leg_0; //sets all LEDs of leg 1 to 255
 
 Complete rings can be adressed:
 ```
-piGlow.ring_0 = 100; //sets LED 1 of leg 1, LED 1 of leg 1 and LED 1 of leg 2 to 100
+piGlow.ring_0 = 100; //sets LED 1 of leg 1, LED 1 of leg 2 and LED 1 of leg 3 to 100
 
 //shorthand
 piGlow.ring_0; //sets LED 1 of leg 1, LED 1 of leg 1 and LED 1 of leg 2 to 255
