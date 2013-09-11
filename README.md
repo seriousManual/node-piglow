@@ -53,6 +53,12 @@ piGlow(function(error) {
 
 ## Usage
 
+<p align="center">
+  <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_leds.jpg" />
+  <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_legs.jpg" />
+  <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_rings.jpg" />
+</p>
+
 To each LED a brightness value between 0 (off) and 255 (freakin' bright) can be assigned.
 
 LEDs can be addressed individually:
