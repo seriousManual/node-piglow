@@ -101,7 +101,7 @@ piGlow.random = 0.5;
 //shorthand
 piGlow.random;
 ```
-The propbability of lighting up is calculated via this formula (if not set): `(0.4 + Math.random() * 0.2);`.
+The propbability of lighting up can be defined (`piGLow.random = 0.1;`) and is otherwise calculated via this formula: `(0.4 + Math.random() * 0.2);`.
 The brightness is calculated via this formula: `parseInt(MAX_VALUE / 2 + (MAX_VALUE / 2 * Math.random()), 10)`
 
 ## Mocking
@@ -124,7 +124,9 @@ To implement your own mocks follow this interface:
 ```
 function PiGlowMock() {}
 
-PiGlowMock.prototype.writeBytes = function(bytes, callback) {};
+PiGlowMock.prototype.writeBytes = function(bytes, callback) {
+  //bytes is a array of 18 integer values between 0 and 255
+};
 ```
 
 ## Made with:
