@@ -1,22 +1,22 @@
-var PiGlowBackendMock = require('../lib/PiGlowBackendMock');
+var PiGlowBackend = require('../lib/PiGlowBackend');
 var piGlowInterface = require('../lib/interface');
 
-var myMock = new PiGlowBackendMock();
-var piGlow = piGlowInterface.create(myMock);
+var myBackend = new PiGlowBackend();
+var piGlow = piGlowInterface.create(myBackend);
 
-myMock.on('initialize', function() {
+myBackend.on('initialize', function() {
     goCrazy(piGlow);
 });
 
-var prob = 1;
-var delta = 0.1;
+var prob = 0.5;
+var delta = 0.;
 
 function goCrazy(piGlow) {
     piGlow.random = prob;
 
     prob += delta;
 
-    if(prob > 1 || prob < 0) {
+    if(prob > 0.7 || prob < 0.2) {
         delta *= -1;
     }
 
