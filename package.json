@@ -1,6 +1,6 @@
 {
   "name": "piglow",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "javascript interface for the piglow",
   "main": "index.js",
   "contributors": [
@@ -15,7 +15,7 @@
     "i2c": "~0.1.4",
     "seq": "~0.3.5"
   },
-  "devdependencies": {
+  "devDependencies": {
     "mocha": "~1.12.1",
     "chai": "~1.7.2"
   },
