@@ -108,7 +108,7 @@ The brightness is calculated via this formula: `parseInt(MAX_VALUE / 2 + (MAX_VA
 
 This module also exposes its internal structure, with the possibility to invoke the piGlow interface with a injected mocking backend:
 ```
-var piGlow = require('piGlow');
+var piGlow = require('piglow');
 var PiGlowBackendMock = piGlow.BackendMock;
 var piGlowInterface = piGLow.piGlowInterface;
 
