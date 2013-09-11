@@ -53,6 +53,8 @@ piGlow(function() {
 
 ## Usage
 
+To each LED a brightness value between 0 (off) and 255 (freakin' bright) can be assigned.
+
 LEDs can be addressed individually:
 ```
 //parameter sets the brightness:
@@ -62,7 +64,7 @@ piGlow.l_0_1 = 10; //sets LED 2 of leg 1 to a brightness of 10
 piGlow.l_2_5 = 200; //sets LED 6 of leg 3 to a brightness of 200
 
 //shorthand form:
-piGlow.l_0_0; //sets LED 1 of leg 1 to a brightness of 255 (freakin bright...)
+piGlow.l_0_0; //sets LED 1 of leg 1 to a brightness of 255
 ```
 
 Complete legs can be adressed:
@@ -86,7 +88,7 @@ Adress all LEDs:
 piGlow.all = 100; //set all LEDs to 100
 
 //shorthand
-piGlow.all; //set all LEDs to 255
+piGlow.all; //set all LEDs to 255 (watch your eyes)
 
 piGlow.reset; //set all LEDs to 0
 ```
@@ -102,6 +104,28 @@ piGlow.random;
 The propbability of lighting up is calculated via this formula (if not set): `(0.4 + Math.random() * 0.2);`.
 The brightness is calculated via this formula: `parseInt(MAX_VALUE / 2 + (MAX_VALUE / 2 * Math.random()), 10)`
 
+## Mocking
+
+This module also exposes its internal structure, with the possibility to invoke the piGlow interface with a injected mocking backend:
+```
+var piGlow = require('piGlow');
+var PiGlowBackendMock = piGlow.BackendMock;
+var piGlowInterface = piGLow.piGlowInterface;
+
+var myMock = new PiGlowBackendMock();
+var myInterface = piGlowInterface.create(myMock);
+
+//lets hack
+myInterface.ring_0 = 255;
+```
+
+This way the module can be used in a non raspi environment for development or with a testing moch for unit tests.
+To implement your own mocks follow this interface:
+```
+function PiGlowMock() {}
+
+PiGlowMock.prototype.writeBytes = function(bytes, callback) {};
+```
 
 ## Made with:
 [node-i2c](https://github.com/kelly/node-i2c)
