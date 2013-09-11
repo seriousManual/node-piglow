@@ -6,9 +6,13 @@ function createPiGlow(callback) {
     var myPiGlow = new PiGlowBackend();
     var myInterface = piGlowInterface.create(myPiGlow);
 
-    myPiGlow.on('initialize', function() {
-        callback(myInterface);
-    });
+    myPiGlow
+        .on('initialize', function() {
+            callback(null, myInterface);
+        })
+        .on('error', function(error) {
+            callback(error, null);
+        });
 }
 
 createPiGlow.BackendMock = PiGlowBackendMock;

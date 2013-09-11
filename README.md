@@ -45,7 +45,7 @@ Comment out blacklist i2c-bcm2708
 var piGlow = require('piglow');
 
 //callback fires when board is initialized
-piGlow(function() {
+piGlow(function(error) {
   //do something
 });
 
