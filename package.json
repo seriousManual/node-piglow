@@ -1,6 +1,6 @@
 {
   "name": "piglow",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "javascript interface for the piglow",
   "main": "index.js",
   "contributors": [
