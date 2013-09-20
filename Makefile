@@ -5,7 +5,7 @@ install-packages:
 	npm install
 
 run-unit-tests:
-	@NODE_ENV=test $(MOCHA) --reporter spec --timeout 5000 ./tests/unit
+	@NODE_ENV=test $(MOCHA) --timeout 5000 ./tests/unit
 
 run-all-tests:
 	@$(MAKE) run-unit-tests
