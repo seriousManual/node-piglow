@@ -45,6 +45,23 @@ Comment out blacklist i2c-bcm2708
 
 ## Invocation
 
+### From the commandline
+
+````bash
+$ piglow --leg_0 100 //lights up the 8 LEDs of the first piglow leg
+````
+
+Each parameter can be specified individually as a command line parameter. See the section "Adressing" for a detailed overview.
+
+When the parameter "mocked" is assigned, the parameters will not passed to the piglow board but to a mocking backend. This is useful in a testing environment. (See the "Mocking" section)
+
+````bash
+$ piglow --leg_1 100 --mocked
+mock says:  [ 0, 0, 0, 0, 8, 8, 8, 8, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0 ]
+````
+
+### From your script
+
 ```
 var piGlow = require('piglow');
 
@@ -55,7 +72,7 @@ piGlow(function(error) {
 
 ```
 
-## Usage
+## Adressing
 
 <p align="center">
   <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_leds.jpg" />
