@@ -159,6 +159,7 @@ PiGlowMock.prototype.writeBytes = function(bytes, callback) {
 ## Made with:
 - **node-ic2** https://github.com/kelly/node-i2c
 - **seq** https://github.com/substack/node-seq/
+- **optimist** https://github.com/substack/optimist/
 
 ## Used in
 - **piglow-load** https://github.com/zaphod1984/node-piglow-load
