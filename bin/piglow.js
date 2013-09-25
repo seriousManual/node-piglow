@@ -3,15 +3,28 @@
 var argv = require('optimist').argv;
 var piGlow = require('../');
 
+delete argv._;
+delete argv['$0'];
+
 createInterface(argv, function(error, piGlowInterface) {
    if(error) {
        console.error('could not create interface: ', error.message);
-       return;
+       process.exit(1);
    }
 
    Object.keys(argv).forEach(function(key) {
+       var value = argv[key];
+
        if(Object.hasOwnProperty.call(piGlowInterface, key)) {
-           piGlowInterface[key] = argv[key];
+           if(value === true) {
+               //shorthand versions
+               piGlowInterface[key];
+           } else {
+               piGlowInterface[key] = value;
+           }
+       } else {
+           console.error('Unknown parameter: ', key);
+           process.exit(1);
        }
    });
 });
