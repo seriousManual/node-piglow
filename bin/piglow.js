@@ -12,6 +12,7 @@ createInterface(argv, function(error, piGlowInterface) {
        process.exit(1);
    }
 
+   piGlowInterface.startTransaction();
    Object.keys(argv).forEach(function(key) {
        var value = argv[key];
 
@@ -27,6 +28,7 @@ createInterface(argv, function(error, piGlowInterface) {
            process.exit(1);
        }
    });
+   piGlowInterface.commitTransaction();
 });
 
 function createInterface(options, callback) {
