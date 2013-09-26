@@ -138,6 +138,29 @@ piGlow.random;
 The propbability of lighting up can be defined (`piGLow.random = 0.1;`) and is otherwise calculated via this formula: `(0.4 + Math.random() * 0.2);`.
 The brightness is calculated via this formula: `parseInt(MAX_VALUE / 2 + (MAX_VALUE / 2 * Math.random()), 10)`
 
+## Transactions
+
+Each parameter that is set causes the backend to transfer the complete set of values to the piglow board.
+Thus the following operation would cause three write operations:
+
+```
+piGlow.l_0_1 = 100;
+piGlow.l_0_2 = 100;
+piGlow.l_0_3 = 100;
+```
+
+The piglow-interface offers the possibility to open up a transaction and to commit it when all changes have been made. So the following code will cause only one write to the hardware board:
+
+```
+piGlow.startTransaction();
+piGlow.l_0_1 = 100;
+piGlow.l_0_2 = 100;
+piGlow.l_0_3 = 100;
+piGlow.commitTransaction();
+```
+
+This benefits performance especially when the LEDs are changed in high frequence.
+
 ## Mocking
 
 This module also exposes its internal structure, with the possibility to invoke the piGlow interface with a injected mocking backend:
