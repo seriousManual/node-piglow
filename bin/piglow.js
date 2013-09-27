@@ -79,6 +79,9 @@ function showHelp() {
             '    --leg_0:         lights up the outer ring at max brightness',
             '    available range: ring_0 - ring_5',
             '',
+            '  Example:',
+            '    piglow --mocked --ring_0 100 --leg_1 --l_2_5 10',
+            '',
             '',
     ];
 
