@@ -1,6 +1,6 @@
 var expect = require('chai').expect;
 
-var gammaCorrection = require('../../lib/util/gammaCorrection');
+var gammaCorrection = require('../lib/util/gammaCorrection');
 
 describe('gamma', function() {
 

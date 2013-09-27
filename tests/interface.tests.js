@@ -1,6 +1,6 @@
 var expect = require('chai').expect;
 
-var interface = require('../../lib/interface');
+var interface = require('../lib/interface');
 
 describe('interface', function() {
     var ti;
