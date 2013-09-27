@@ -53,7 +53,7 @@ $ piglow --leg_0 100 //lights up the 8 LEDs of the first piglow leg
 
 Each parameter can be specified individually as a command line parameter. See the section "Adressing" for a detailed overview.
 
-When the parameter "mocked" is assigned, the parameters will not passed to the piglow board but to a mocking backend. This is useful in a testing environment. (See the "Mocking" section)
+When the parameter `mocked` is assigned, the parameters will not be passed to the piglow board but to a mocking backend. This is useful in a testing environment. (See the "Mocking" section)
 
 ````bash
 $ piglow --leg_1 100 --mocked
@@ -92,7 +92,7 @@ piGlow(function(error) {
   <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_leds.jpg" />
   <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_legs.jpg" />
   <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_rings.jpg" />
-</p> Use `interface.
+</p>
 
 To each LED a brightness value between 0 (off) and 255 (freakin' bright) can be assigned.
 If one preferrs percentage values, as a convenience function all values smaller than 1 are treated as percentage values. Note that the value of '1' is not treated as 100% but as the brightness value of 1!
