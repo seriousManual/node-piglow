@@ -313,18 +313,4 @@ describe('interface', function() {
         expect(mock.values).to.deep.equal([8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]);
     });
 
-    it('wrong datatype (string)', function() {
-        ti.l_0_0 = 'foo';
-        expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
-    });
-
-    it('wrong datatype (object)', function() {
-        ti.l_0_0 = {};
-        expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
-    });
-
-    it('wrong datatype (string)', function() {
-        ti.l_0_0 = '1';
-        expect(ti.values).to.deep.equal([1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
-    });
 });

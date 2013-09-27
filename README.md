@@ -92,15 +92,17 @@ piGlow(function(error) {
   <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_leds.jpg" />
   <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_legs.jpg" />
   <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_rings.jpg" />
-</p>
+</p> Use `interface.
 
 To each LED a brightness value between 0 (off) and 255 (freakin' bright) can be assigned.
+If one preferrs percentage values, as a convenience function all values smaller than 1 are treated as percentage values. Note that the value of '1' is not treated as 100% but as the brightness value of 1!
 
 LEDs can be addressed individually:
 ```
 //parameter sets the brightness:
 piGlow.l_0_0 = 100; //sets LED 1 of leg 1 to a brightness of 100 (of 255)
 piGlow.l_0_1 = 10; //sets LED 2 of leg 1 to a brightness of 10
+piGlow.l_0_1 = 0.5; //sets LED 2 of leg 1 to a brightness of 50% (=brightness of 127)
 ...
 piGlow.l_2_5 = 200; //sets LED 6 of leg 3 to a brightness of 200
 
