@@ -60,6 +60,13 @@ $ piglow --leg_1 100 --mocked
 mock says:  [ 0, 0, 0, 0, 8, 8, 8, 8, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0 ]
 ````
 
+Example
+````bash
+piglow --mocked --ring_0 100 --leg_1 --l_2_5 10
+mock says:  [ 8, 0, 0, 0, 255, 255, 255, 255, 255, 255, 1, 0, 0, 0, 0, 0, 0, 8 ]
+````
+
+
 The shorthand version can be used on the command line as well:
 
 ````bash
