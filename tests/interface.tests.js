@@ -313,4 +313,22 @@ describe('interface', function() {
         expect(mock.values).to.deep.equal([8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]);
     });
 
+    it('should output random data', function() {
+        ti.random = 0.5;
+
+        expect(ti.values).to.satisfy(function(values) {
+            var a = values.reduce(function(memo, value) {
+                if(value > 0) {
+                    memo.a++;
+                } else {
+                    memo.z++;
+                }
+
+                return memo;
+            }, {z:0, a:0});
+
+            return a.z > 0 && a.a > 0;
+        });
+    })
+
 });
