@@ -17,6 +17,11 @@ createInterface(argv, function(error, piGlowInterface) {
         process.exit(1);
     }
 
+    if(Object.keys(argv).length === 0) {
+        console.error('No parameter has been set');
+        process.exit(1);
+    }
+
     piGlowInterface.startTransaction();
 
     Object.keys(argv).forEach(function(key) {

@@ -14,7 +14,7 @@ describe('piglow bin', function() {
     });
 
     it('should return no error when in mocked mode', function(done) {
-        runCommand(['--mocked'], function(error, stdout, stderror) {
+        runCommand(['--mocked --reset'], function(error, stdout, stderror) {
             expect(error).to.be.null;
             expect(stdout).to.match(/0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0/);
             done();
@@ -25,6 +25,14 @@ describe('piglow bin', function() {
         runCommand(['--mocked --foo'], function(error, stdout, stderror) {
             expect(error).not.to.be.null;
             expect(error.message).to.match(/Unknown parameter:  foo/);
+            done();
+        });
+    });
+
+    it('should return an error wen no parameter has been set', function(done) {
+        runCommand(['--mocked'], function(error, stdout, stderror) {
+            expect(error).not.to.be.null;
+            expect(stderror).to.equal('No parameter has been set\n');
             done();
         });
     });
