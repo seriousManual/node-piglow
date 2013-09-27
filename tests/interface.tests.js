@@ -1,12 +1,12 @@
 var expect = require('chai').expect;
 
-var interface = require('../lib/interface');
+var piGlowInterface = require('../lib/interface');
 
 describe('interface', function() {
     var ti;
 
     beforeEach(function() {
-        ti = interface.create();
+        ti = piGlowInterface.create();
     });
 
     it('l_0_0 (shorthand)', function() {
@@ -306,7 +306,7 @@ describe('interface', function() {
             }
         };
 
-        var ti = interface.create(mock);
+        var ti = piGlowInterface.create(mock);
 
         ti.all = 100;
 
