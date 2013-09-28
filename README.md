@@ -126,6 +126,15 @@ piGlow.ring_0 = 100; //sets LED 1 of leg 1, LED 1 of leg 2 and LED 1 of leg 3 to
 piGlow.ring_0; //sets LED 1 of leg 1, LED 1 of leg 1 and LED 1 of leg 2 to 255
 ```
 
+As the rings are distinguishable by color (order from outer ring to the inner: red, orange, yellow, green, blue, white), they can be adressed via the rings color:
+```
+piGlow.red = 100; //sets the first ring to a brightness of 100
+
+//shorthand
+piGlow.red; //sets the first ring to maximum brightness
+```
+
+
 Adress all LEDs:
 ```
 piGlow.all = 100; //set all LEDs to 100
