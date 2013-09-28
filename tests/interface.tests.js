@@ -225,61 +225,109 @@ describe('interface', function() {
         ti.ring_0;
         expect(ti.values).to.deep.equal([255,0,0,0,0,0,255,0,0,0,0,0,0,0,0,0,0,255]);
     });
-
     it('ring_0', function() {
         ti.ring_0 = 100;
         expect(ti.values).to.deep.equal([8,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,8]);
     });
+    it('red (shorthand)', function() {
+        ti.red;
+        expect(ti.values).to.deep.equal([255,0,0,0,0,0,255,0,0,0,0,0,0,0,0,0,0,255]);
+    });
+    it('red', function() {
+        ti.red = 100;
+        expect(ti.values).to.deep.equal([8,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,8]);
+    });
+
 
     it('ring_1 (shorthand)', function() {
         ti.ring_1;
         expect(ti.values).to.deep.equal([0,255,0,0,0,0,0,255,0,0,0,0,0,0,0,0,255,0]);
     });
-
     it('ring_1', function() {
         ti.ring_1 = 100;
         expect(ti.values).to.deep.equal([0,8,0,0,0,0,0,8,0,0,0,0,0,0,0,0,8,0]);
     });
+    it('orange (shorthand)', function() {
+        ti.orange;
+        expect(ti.values).to.deep.equal([0,255,0,0,0,0,0,255,0,0,0,0,0,0,0,0,255,0]);
+    });
+    it('orange', function() {
+        ti.orange = 100;
+        expect(ti.values).to.deep.equal([0,8,0,0,0,0,0,8,0,0,0,0,0,0,0,0,8,0]);
+    });
+
 
     it('ring_2 (shorthand)', function() {
         ti.ring_2;
         expect(ti.values).to.deep.equal([0,0,255,0,0,0,0,0,255,0,0,0,0,0,0,255,0,0]);
     });
-
     it('ring_2', function() {
         ti.ring_2 = 100;
         expect(ti.values).to.deep.equal([0,0,8,0,0,0,0,0,8,0,0,0,0,0,0,8,0,0]);
     });
+    it('yellow (shorthand)', function() {
+        ti.yellow;
+        expect(ti.values).to.deep.equal([0,0,255,0,0,0,0,0,255,0,0,0,0,0,0,255,0,0]);
+    });
+    it('yellow', function() {
+        ti.yellow = 100;
+        expect(ti.values).to.deep.equal([0,0,8,0,0,0,0,0,8,0,0,0,0,0,0,8,0,0]);
+    });
+
 
     it('ring_3 (shorthand)', function() {
         ti.ring_3;
         expect(ti.values).to.deep.equal([0,0,0,255,0,255,0,0,0,0,0,0,0,255,0,0,0,0]);
     });
-
     it('ring_3', function() {
         ti.ring_3 = 100;
         expect(ti.values).to.deep.equal([0,0,0,8,0,8,0,0,0,0,0,0,0,8,0,0,0,0]);
     });
+    it('green (shorthand)', function() {
+        ti.green;
+        expect(ti.values).to.deep.equal([0,0,0,255,0,255,0,0,0,0,0,0,0,255,0,0,0,0]);
+    });
+    it('green', function() {
+        ti.green = 100;
+        expect(ti.values).to.deep.equal([0,0,0,8,0,8,0,0,0,0,0,0,0,8,0,0,0,0]);
+    });
+
 
     it('ring_4 (shorthand)', function() {
         ti.ring_4;
         expect(ti.values).to.deep.equal([0,0,0,0,255,0,0,0,0,0,0,255,0,0,255,0,0,0]);
     });
-
     it('ring_4', function() {
         ti.ring_4 = 100;
         expect(ti.values).to.deep.equal([0,0,0,0,8,0,0,0,0,0,0,8,0,0,8,0,0,0]);
     });
+    it('blue (shorthand)', function() {
+        ti.blue;
+        expect(ti.values).to.deep.equal([0,0,0,0,255,0,0,0,0,0,0,255,0,0,255,0,0,0]);
+    });
+    it('blue', function() {
+        ti.blue = 100;
+        expect(ti.values).to.deep.equal([0,0,0,0,8,0,0,0,0,0,0,8,0,0,8,0,0,0]);
+    });
+
 
     it('ring_5 (shorthand)', function() {
         ti.ring_5;
         expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,255,255,0,255,0,0,0,0,0]);
     });
-
     it('ring_5', function() {
         ti.ring_5 = 100;
         expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,8,8,0,8,0,0,0,0,0]);
     });
+    it('white (shorthand)', function() {
+        ti.white;
+        expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,255,255,0,255,0,0,0,0,0]);
+    });
+    it('white', function() {
+        ti.white = 100;
+        expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,8,8,0,8,0,0,0,0,0]);
+    });
+
 
     it('all', function() {
         ti.all = 100;
