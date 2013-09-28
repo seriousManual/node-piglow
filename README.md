@@ -89,7 +89,7 @@ piGlow(function(error) {
 ## Adressing
 
 <p align="center">
-  <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_leds.jpg" />
+  <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_leds.jpg" /><br>
   <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_legs.jpg" />
   <img src="https://raw.github.com/zaphod1984/node-piglow/master/pics/piglow_rings.jpg" />
 </p>
