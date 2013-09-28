@@ -51,9 +51,9 @@ Comment out blacklist i2c-bcm2708
 $ piglow --leg_0 100 //lights up the 8 LEDs of the first piglow leg
 ````
 
-Each parameter can be specified individually as a command line parameter. See the section "Adressing" for a detailed overview.
+Each parameter can be specified individually as a command line parameter. See the section [Adressing](#adressing) for a detailed overview.
 
-When the parameter `mocked` is assigned, the parameters will not be passed to the piglow board but to a mocking backend. This is useful in a testing environment. (See the "Mocking" section)
+When the parameter `mocked` is assigned, the parameters will not be passed to the piglow board but to a mocking backend. This is useful in a testing environment. (See the [Mocking](#mocking) section)
 
 ````bash
 $ piglow --leg_1 100 --mocked
