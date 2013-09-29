@@ -11,6 +11,11 @@ if(argv.h || argv.help) {
     process.exit(0);
 }
 
+if(argv.v || argv.version) {
+    showVersion();
+    process.exit();
+}
+
 createInterface(argv, function(error, piGlowInterface) {
     if(error) {
         console.error('could not create interface: ', error.message);
@@ -58,6 +63,10 @@ function createInterface(options, callback) {
     } else {
         piGlow(callback);
     }
+}
+
+function showVersion() {
+    console.log(require('../package.json').version);
 }
 
 function showHelp() {
