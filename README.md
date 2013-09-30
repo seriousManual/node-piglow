@@ -97,7 +97,7 @@ piGlow(function(error) {
 To each LED a brightness value between 0 (off) and 255 (freakin' bright) can be assigned.
 If one preferrs percentage values, as a convenience function all values smaller than 1 are treated as percentage values. Note that the value of '1' is not treated as 100% but as the brightness value of 1!
 
-LEDs can be addressed individually:
+### Individual LEDs
 ```
 //parameter sets the brightness:
 piGlow.l_0_0 = 100; //sets LED 1 of leg 1 to a brightness of 100 (of 255)
@@ -110,7 +110,7 @@ piGlow.l_2_5 = 200; //sets LED 6 of leg 3 to a brightness of 200
 piGlow.l_0_0; //sets LED 1 of leg 1 to a brightness of 255
 ```
 
-Complete legs can be adressed:
+### Legs
 ```
 piGlow.leg_0 = 100; //sets all LEDs of leg 1 to a brightness of 100
 
@@ -118,7 +118,7 @@ piGlow.leg_0 = 100; //sets all LEDs of leg 1 to a brightness of 100
 piGlow.leg_0; //sets all LEDs of leg 1 to 255
 ```
 
-Complete rings can be adressed:
+### Rings
 ```
 piGlow.ring_0 = 100; //sets LED 1 of leg 1, LED 1 of leg 2 and LED 1 of leg 3 to 100
 
@@ -135,7 +135,7 @@ piGlow.red; //sets the first ring to maximum brightness
 ```
 
 
-Adress all LEDs:
+### All LEDs
 ```
 piGlow.all = 100; //set all LEDs to 100
 
@@ -145,8 +145,7 @@ piGlow.all; //set all LEDs to 255 (watch your eyes)
 piGlow.reset; //set all LEDs to 0
 ```
 
-Random:
-
+### Random
 ```
 piGlow.random = 0.5;
 
