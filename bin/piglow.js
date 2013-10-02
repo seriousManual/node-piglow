@@ -13,7 +13,7 @@ if(argv.h || argv.help) {
 
 if(argv.v || argv.version) {
     showVersion();
-    process.exit();
+    process.exit(0);
 }
 
 createInterface(argv, function(error, piGlowInterface) {
