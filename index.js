@@ -1,3 +1,4 @@
+var processValue = require('./lib/util/valueProcessor');
 var piGlowInterface = require('./lib/interface');
 var PiGlowBackend = require('./lib/PiGlowBackend');
 var PiGlowBackendMock = require('./lib/PiGlowBackendMock');
@@ -18,5 +19,6 @@ function createPiGlow(callback) {
 createPiGlow.BackendMock = PiGlowBackendMock;
 createPiGlow.Backend = PiGlowBackend;
 createPiGlow.piGlowInterface = piGlowInterface;
+createPiGlow.processValue = processValue;
 
 module.exports = createPiGlow;
