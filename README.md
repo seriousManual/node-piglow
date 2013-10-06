@@ -210,3 +210,4 @@ PiGlowMock.prototype.writeBytes = function(bytes, callback) {
 
 ## Used in
 - **piglow-load** https://github.com/zaphod1984/node-piglow-load
+- **piglow-system** https://github.com/zaphod1984/node-piglow-system
