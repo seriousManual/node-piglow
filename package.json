@@ -3,9 +3,7 @@
   "version": "0.6.7",
   "description": "javascript interface for the piglow",
   "main": "index.js",
-  "contributors": [
-    "Manuel Ernst <zaphod84@gmx.de>"
-  ],
+  "author": "Manuel Ernst <zaphod84@gmx.de>",
   "repository": {
     "type": "git",
     "url": "https://github.com/zaphod1984/node-piglow"
@@ -21,6 +19,7 @@
     "chai": "~1.7.2"
   },
   "keywords": [
+    "pimoroni",
     "piglow",
     "raspberry pi",
     "led",
