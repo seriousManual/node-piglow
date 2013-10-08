@@ -1,5 +1,6 @@
 # TODO
 
+* debug mode
 * animations
 
 ````
