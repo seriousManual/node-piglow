@@ -4,14 +4,6 @@
 * animations
 
 ````
-this is a proposal for animations
-
-modules to use:
-
-chainsaw
-
-
-
 var anim = fador().set(i1)
         .fade.after('2s').in('100ms').to(i2)
         .fade.after('2s').in('100ms').to(i3)
