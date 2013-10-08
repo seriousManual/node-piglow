@@ -1,4 +1,8 @@
-/*
+# TODO
+
+* animations
+
+````
 this is a proposal for animations
 
 modules to use:
@@ -23,4 +27,4 @@ fador().set(i1)
             console.log('i looped 3 times');
         });
 
-*/
+````
