@@ -14,6 +14,9 @@ The piGlow is a little LED-Board for the [Raspberry Pi](http://www.raspberrypi.o
 
 This module offers an interface to control the individual LEDs.
 
+In action video:
+http://www.youtube.com/watch?v=s-rD8PfAke8
+
 ## Installation
 
 ````bash
