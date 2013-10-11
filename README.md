@@ -14,6 +14,9 @@ The piGlow is a little LED-Board for the [Raspberry Pi](http://www.raspberrypi.o
 
 This module offers an interface to control the individual LEDs.
 
+In action video:
+http://www.youtube.com/watch?v=s-rD8PfAke8
+
 ## Installation
 
 ````bash
@@ -211,3 +214,4 @@ PiGlowMock.prototype.writeBytes = function(bytes, callback) {
 ## Used in
 - **piglow-load** https://github.com/zaphod1984/node-piglow-load
 - **piglow-system** https://github.com/zaphod1984/node-piglow-system
+- **piglow-watch** https://github.com/zaphod1984/node-piglow-watch
