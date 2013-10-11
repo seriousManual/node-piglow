@@ -360,7 +360,7 @@ describe('interface', function() {
         expect(mock.values).to.deep.equal([8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]);
     });
 
-    it('should write to the backend, the predefined stuff', function() {
+    it('should write to the backend, the predefined stuff (object)', function() {
         var mock = {
             values: [],
             writeBytes: function(bytes) {
@@ -373,10 +373,29 @@ describe('interface', function() {
         expect(mock.values).to.deep.equal([0,8,0,0,0,0,0,8,0,0,0,0,0,0,0,0,8,0]);
     });
 
-    it('should set the predefined stuff', function() {
+    it('should write to the backend, the predefined stuff (array)', function() {
+        var mock = {
+            values: [],
+            writeBytes: function(bytes) {
+                this.values = bytes;
+            }
+        };
+
+        var ti = piGlowInterface.create(mock, ['ring_2']);
+
+        expect(mock.values).to.deep.equal([0,0,255,0,0,0,0,0,255,0,0,0,0,0,0,255,0,0]);
+    });
+
+    it('should set the predefined stuff (object)', function() {
         var myTi = piGlowInterface.create({ring_0: 100});
 
         expect(myTi.values).to.deep.equal([8,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,8]);
+    });
+
+    it('should set the predefined stuff (array)', function() {
+        var myTi = piGlowInterface.create(['ring_2']);
+
+        expect(myTi.values).to.deep.equal([0,0,255,0,0,0,0,0,255,0,0,0,0,0,0,255,0,0]);
     });
 
     it('should output random data', function() {

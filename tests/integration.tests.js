@@ -5,14 +5,6 @@ var expect = require('chai').expect;
 
 describe('piglow bin', function() {
 
-//    it('should return error', function(done) {
-//        runCommand([], function(error, stdout, stderror) {
-//            expect(error).not.to.be.null;
-//            expect(error.message).to.match(/Failed to set address/);
-//            done();
-//        });
-//    });
-
     it('should return no error when in mocked mode', function(done) {
         runCommand(['--mocked --reset'], function(error, stdout, stderror) {
             expect(error).to.be.null;
