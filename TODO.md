@@ -19,5 +19,29 @@ fador().set(i1)
         .start(function() {
             console.log('i looped 3 times');
         });
+        
+fador().set(i1)
+        .set.after(2).to(i2)
+        .set.after(2).to(i3)
+        .repeat(3).times.
+        .start(function() {
+            console.log('i looped 3 times');
+        });
+
+fador().set(i1)
+        .set.after(2).to(i2)
+        .set.after(2).to(i3)
+        .repeat(3).minutes
+        .start(function() {
+            console.log('i looped 3 times');
+        });
+
+fador().set(i1)
+        .set.after(2).to(i2)
+        .set.after(2).to(i3)
+        .repeat(3).seconds
+        .start(function() {
+            console.log('i looped 3 times');
+        });
 
 ````
