@@ -1,11 +1,11 @@
 var animation = require('./index');
 
-var a = animation().set(1)
-    .fade().after('2s').in('100ms').to(2)
-    .fade().after('2s').in('100ms').to(3);
-
-a.start();
-a.stop();
+//var a = animation().set(1)
+//    .fade().after('2s').in('100ms').to(2)
+//    .fade().after('2s').in('100ms').to(3);
+//
+//a.start();
+//a.stop();
 
 animation()
     .set(1)
