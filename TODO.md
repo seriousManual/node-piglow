@@ -25,7 +25,7 @@ fador().set(i1)
 fador().set(i1)
         .set().after(2).to(i2)
         .set().after(2).to(i3)
-        .repeat(3).times()
+        .repeat('3times')
         .start(function() {
             console.log('i looped 3 times');
         });
@@ -33,17 +33,17 @@ fador().set(i1)
 fador().set(i1)
         .set().after(2).to(i2)
         .set().after(2).to(i3)
-        .repeat(3).minutes()
+        .repeat('3s')
         .start(function() {
-            console.log('i looped 3 times');
+            console.log('i looped for 3 seconds');
         });
 
 fador().set(i1)
         .set().after(2).to(i2)
         .set().after(2).to(i3)
-        .repeat(3).seconds()
+        .repeat('2ms')
         .start(function() {
-            console.log('i looped 3 times');
+            console.log('i looped for 2 ms');
         });
 
 ````
