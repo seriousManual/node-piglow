@@ -12,6 +12,8 @@ var anim = fador().set(i1)
 anim.start();
 anim.stop();
 
+fador({interval:10}).set(i1).start();
+
 fador().set(i1)
         .set.after(2).to(i2)
         .set.after(2).to(i3)
