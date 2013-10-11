@@ -5,7 +5,7 @@ var PiGlowBackendMock = require('./lib/PiGlowBackendMock');
 
 function createPiGlow(callback) {
     var myPiGlow = new PiGlowBackend();
-    var myInterface = piGlowInterface.create(myPiGlow);
+    var myInterface = piGlowInterface(myPiGlow);
 
     myPiGlow
         .on('initialize', function() {

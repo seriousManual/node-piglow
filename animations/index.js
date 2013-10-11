@@ -1,4 +1,4 @@
-var piGlowBackend = require('./piGlowBackend');
+var piGlowBackend = require('../lib/PiGlowBackend');
 var AnimationBackend = require('./animationBackend');
 var animationInterface = require('./animationInterface');
 
