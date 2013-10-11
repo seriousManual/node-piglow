@@ -190,7 +190,7 @@ var PiGlowBackendMock = piGlow.BackendMock;
 var piGlowInterface = piGLow.piGlowInterface;
 
 var myMock = new PiGlowBackendMock();
-var myInterface = piGlowInterface.create(myMock);
+var myInterface = piGlowInterface(myMock);
 
 //lets hack
 myInterface.ring_0 = 255;
