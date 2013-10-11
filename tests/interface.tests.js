@@ -2,6 +2,15 @@ var expect = require('chai').expect;
 
 var piGlowInterface = require('../lib/interface');
 
+function createBackendMock() {
+    return {
+        values: [],
+        writeBytes: function(bytes) {
+            this.values = bytes;
+        }
+    };
+}
+
 describe('interface', function() {
     var ti;
 
@@ -346,42 +355,26 @@ describe('interface', function() {
     });
 
     it('should write to the backend', function() {
-        var mock = {
-            values: [],
-            writeBytes: function(bytes) {
-                this.values = bytes;
-            }
-        };
+        var mock = createBackendMock();
 
         var ti = piGlowInterface.create(mock);
-
         ti.all = 100;
 
         expect(mock.values).to.deep.equal([8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]);
     });
 
     it('should write to the backend, the predefined stuff (object)', function() {
-        var mock = {
-            values: [],
-            writeBytes: function(bytes) {
-                this.values = bytes;
-            }
-        };
+        var mock = createBackendMock();
 
-        var ti = piGlowInterface.create(mock, {ring_1: 100});
+        piGlowInterface.create(mock, {ring_1: 100});
 
         expect(mock.values).to.deep.equal([0,8,0,0,0,0,0,8,0,0,0,0,0,0,0,0,8,0]);
     });
 
     it('should write to the backend, the predefined stuff (array)', function() {
-        var mock = {
-            values: [],
-            writeBytes: function(bytes) {
-                this.values = bytes;
-            }
-        };
+        var mock = createBackendMock();
 
-        var ti = piGlowInterface.create(mock, ['ring_2']);
+        piGlowInterface.create(mock, ['ring_2']);
 
         expect(mock.values).to.deep.equal([0,0,255,0,0,0,0,0,255,0,0,0,0,0,0,255,0,0]);
     });
