@@ -46,4 +46,12 @@ fador().set(i1)
             console.log('i looped for 2 ms');
         });
 
+var a = animation()
+    .fade().after('1s').to(i2).in('2s').parallel()
+    .fade().after('2s').to(i2).in('2s').parallel()
+    .fade().after('3s').to(i2).in('2s').parallel()
+    .set().to(i3).before('2s')
+    .set().to(i4).before('2s')
+    .set().to(i5).before('2s')
+
 ````

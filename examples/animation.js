@@ -1,7 +1,5 @@
-var animation = require('./index');
+var animation = require('../lib/animations/index');
 var pi = require('../lib/interface');
-
-console.log(pi);
 
 //var a = animation().set(1)
 //    .fade().after('2s').in('100ms').to(2)
@@ -12,8 +10,9 @@ console.log(pi);
 
 animation()
     .set(pi({ring_0:true}))
-    .set().after(2).to(pi({ring_1:true}))
-    .set().after(2).to(pi({ring_2:true}))
+    .set().after('2s').to(pi({ring_1:true}))
+    .set().after('2min').to(pi({ring_1:true}))
+    .set().after('0.2s').to(pi({ring_2:true}))
     .repeat(3)
     .start(function() {
         console.log('i looped 3 times');
