@@ -47,11 +47,20 @@ fador().set(i1)
         });
 
 var a = animation()
-    .fade().after('1s').to(i2).in('2s').parallel()
-    .fade().after('2s').to(i2).in('2s').parallel()
-    .fade().after('3s').to(i2).in('2s').parallel()
-    .set().to(i3).before('2s')
-    .set().to(i4).before('2s')
-    .set().to(i5).before('2s')
+    .fade().after('1s').to(i2).in('2s')
+    .fade().after('2s').to(i2).in('2s')
+    .fade().after('3s').to(i2).in('2s')
+    .set().to(i3)
+    .set().to(i4)
+    .set().to(i5);
+
+
+animation({}, piGlowBackendMock)
+    .set().to(pi({ring_0: 100}))
+    .set().after('1s').to(pi({ring_1: 100}))
+    .set().after('2s').to(pi({ring_2: 100}))
+    .start(function() {
+        console.log('i looped 3 times');
+    });
 
 ````
