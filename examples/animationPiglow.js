@@ -1,18 +1,14 @@
 var animation = require('../lib/animations/index');
 var pi = require('../lib/interface');
 
-var piGlowBackendMock = {
-    writeBytes: function() {}
-};
+var PiGlowBackend = require('../lib/PiGlowBackend');
 
-//animation({debug: true}, piGlowBackendMock)
+//animation({debug: true}, PiGlowBackend)
 //        .set().to(pi(['ring_1'])).after('3s')
 //        .set().to(pi(['ring_5'])).after('3s')
 //        .start();
 
-var piGlow = require('../lib/PiGlowBackend');
-
-animation({debug:false, interval: 100}, new piGlow())
+animation({debug:false, interval: 100}, new PiGlowBackend())
         .fade().to(pi({ring_0: 255})).in('1s')
         .fade().to(pi({ring_1: 255})).in('1s')
         .fade().to(pi({ring_2: 255})).in('1s')
