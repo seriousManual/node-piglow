@@ -1,5 +1,5 @@
-var animation = require('../lib/animations/index');
-var pi = require('../lib/interface');
+var animation = require('../../lib/animations/index');
+var pi = require('../../lib/interface');
 
 var piGlowBackendMock = {
     writeBytes: function() {}

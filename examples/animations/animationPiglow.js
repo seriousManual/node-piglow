@@ -1,7 +1,7 @@
-var animation = require('../lib/animations/index');
-var pi = require('../lib/interface');
+var animation = require('../../lib/animations/index');
+var pi = require('../../lib/interface');
 
-var PiGlowBackend = require('../lib/PiGlowBackend');
+var PiGlowBackend = require('../../lib/PiGlowBackend');
 
 //animation({debug: true}, PiGlowBackend)
 //        .set().to(pi(['ring_1'])).after('3s')
