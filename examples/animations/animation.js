@@ -10,7 +10,7 @@ var piGlowBackendMock = {
 //        .set().to(pi(['ring_5'])).after('3s')
 //        .start();
 
-animation({debug:true, interval: 100}, piGlowBackendMock)
+var a = animation({debug:true, interval: 100}, piGlowBackendMock)
         .fade().after('1s').to(pi({ring_0: 255})).in('1s')
         .fade().after('1s').to(pi({ring_1: 255})).in('1s')
         .fade().after('1s').to(pi({ring_2: 255})).in('1s')
@@ -19,5 +19,9 @@ animation({debug:true, interval: 100}, piGlowBackendMock)
         .fade().after('1s').to(pi({ring_5: 255})).in('1s')
         .repeat('3times')
         .start(function() {
-            console.log('i looped 3 times');
+            console.log('its over...')
         });
+
+setTimeout(function() {
+    a.stop();
+}, 10000);
