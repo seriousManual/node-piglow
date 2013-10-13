@@ -2,6 +2,7 @@
 
 * debug mode
 * animations
+* server
 
 ````
 var anim = fador().set(i1)
