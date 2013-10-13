@@ -5,10 +5,13 @@ var piGlowBackendMock = {
     writeBytes: function() {}
 };
 
-animation({debug: true}, piGlowBackendMock)
-        .set().to(pi(['ring_1'])).after('3s')
-        .set().to(pi(['ring_5'])).after('3s')
-        .repeat('10s')
+animation({interval:10, debug: true}, piGlowBackendMock)
+        .set().to(pi(['ring_1'])).after('0.1s')
+        .set().to(pi(['ring_2'])).after('0.1s')
+        .set().to(pi(['ring_3'])).after('0.5s')
+        .set().to(pi(['ring_4'])).after('0.1s')
+        .set().to(pi(['ring_5'])).after('0.1s')
+        .repeat('3times')
         .start();
 
 //var a = animation({debug:true, interval: 100}, piGlowBackendMock)
