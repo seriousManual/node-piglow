@@ -23,7 +23,7 @@ var legs = animation({debug: true}, piGlowBackendMock)
 animation.jane({debug: true})
         .chain(rings)
         .chain(legs)
-        .repeat('1times')
+        .repeat('2s')
         .start(function() {
             console.log( 'chain finished' );
         });

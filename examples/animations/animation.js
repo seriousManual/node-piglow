@@ -11,7 +11,7 @@ animation({interval:10, debug: true}, piGlowBackendMock)
         .set().to(pi(['ring_3'])).after('0.5s')
         .set().to(pi(['ring_4'])).after('0.1s')
         .set().to(pi(['ring_5'])).after('0.1s')
-        .repeat('3times')
+        .repeat('5s')
         .start();
 
 //var a = animation({debug:true, interval: 100}, piGlowBackendMock)
