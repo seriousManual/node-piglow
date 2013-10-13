@@ -20,7 +20,7 @@ var legs = animation({debug: true}, piGlowBackendMock)
         .set().to(pi(['leg_2'])).after('0.1s')
         .repeat('1times');
 
-animation.jane()
+animation.jane({debug: true})
         .chain(rings)
         .chain(legs)
         .repeat('1times')
