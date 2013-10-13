@@ -1,4 +1,4 @@
-var animation = require('../../lib/animations/index');
+var animation = require('../../lib/animations');
 var pi = require('../../lib/interface');
 
 var piGlowBackendMock = {
