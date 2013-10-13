@@ -8,12 +8,12 @@ var myBackend = new PiGlowBackend();
 var debug = args.debug || args.d || false;
 
 var rings = animation({debug: debug, interval:10}, myBackend)
-        .set().to(pi(['ring_0'])).after('0.03s')
-        .set().to(pi(['ring_1'])).after('0.03s')
-        .set().to(pi(['ring_2'])).after('0.03s')
-        .set().to(pi(['ring_3'])).after('0.03s')
-        .set().to(pi(['ring_4'])).after('0.03s')
-        .set().to(pi(['ring_5'])).after('0.03s')
+        .fade().to(pi(['ring_0'])).in('0.03s')
+        .fade().to(pi(['ring_1'])).in('0.03s')
+        .fade().to(pi(['ring_2'])).in('0.03s')
+        .fade().to(pi(['ring_3'])).in('0.03s')
+        .fade().to(pi(['ring_4'])).in('0.03s')
+        .fade().to(pi(['ring_5'])).in('0.03s')
         .repeat('5times');
 
 var legs = animation({debug: debug, interval: 10}, myBackend)
