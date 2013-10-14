@@ -30,16 +30,18 @@ describe('valueProcess', function() {
         });
     });
 
-    it('should only allow numbers (no string)', function() {
-        expect(processValue('foo')).to.equal(0);
-    });
+    describe('errors', function() {
+        it('should only allow numbers (no string)', function() {
+            expect(processValue('foo')).to.equal(0);
+        });
 
-    it('should only allow integers (no objects)', function() {
-        expect(processValue({})).to.equal(0);
-    });
+        it('should only allow integers (no objects)', function() {
+            expect(processValue({})).to.equal(0);
+        });
 
-    it('should only allow integers (no arrays)', function() {
-        expect(processValue([])).to.equal(0);
+        it('should only allow integers (no arrays)', function() {
+            expect(processValue([])).to.equal(0);
+        });
     });
 
 });
