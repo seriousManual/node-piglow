@@ -8,7 +8,7 @@ describe('hrtime', function() {
         var elapsed = hrtime();
 
         setTimeout(function() {
-            expect(elapsed()).within(100, 120);
+            expect(elapsed()).within(98, 120);
             done();
         }, 100);
     });

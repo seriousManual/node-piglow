@@ -8,6 +8,16 @@ function createBackend() {
 
 describe('debug', function() {
 
+    it('should not log without parameter', function() {
+        var mock = createBackend();
+        var a = depugger({backend: mock});
+
+        a('foo');
+        a('bar');
+
+        expect(mock.log).to.deep.equal([]);
+    });
+
     it('should not log', function() {
         var mock = createBackend();
         var a = depugger({debug:false, backend: mock});
