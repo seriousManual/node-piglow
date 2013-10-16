@@ -17,7 +17,8 @@
   },
   "devDependencies": {
     "mocha": "~1.12.1",
-    "chai": "~1.7.2"
+    "chai": "~1.7.2",
+    "sandboxed-module": "~0.2.2"
   },
   "keywords": [
     "pimoroni",
