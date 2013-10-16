@@ -1,3 +1,4 @@
+var ce = require('cloneextend');
 var expect = require('chai').expect;
 
 var piGlowInterface = require('../lib/interface');
@@ -6,7 +7,7 @@ function createBackendMock() {
     return {
         values: [],
         writeBytes: function(bytes) {
-            this.values = bytes;
+            this.values.push(ce.clone(bytes));
         }
     };
 }
@@ -360,7 +361,37 @@ describe('interface', function() {
         var ti = piGlowInterface.create(mock);
         ti.all = 100;
 
-        expect(mock.values).to.deep.equal([8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]);
+        expect(mock.values).to.deep.equal([[8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]]);
+    });
+
+    it('should write to the backend (multiple times)', function() {
+        var mock = createBackendMock();
+
+        var ti = piGlowInterface.create(mock);
+        ti.leg_0 = 100;
+        ti.leg_1 = 100;
+        ti.leg_2 = 100;
+
+        expect(mock.values).to.deep.equal([
+            [ 8, 8, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 8, 0, 0, 0 ],
+            [ 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 0, 8, 0, 8, 0, 0, 0 ],
+            [ 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8 ]
+        ]);
+    });
+
+    it('should write to the backend (on times)', function() {
+        var mock = createBackendMock();
+
+        var ti = piGlowInterface.create(mock);
+        ti.startTransaction();
+        ti.leg_0 = 100;
+        ti.leg_1 = 100;
+        ti.leg_2 = 100;
+        ti.commitTransaction();
+
+        expect(mock.values).to.deep.equal([
+            [ 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8 ]
+        ]);
     });
 
     it('should write to the backend, the predefined stuff (object)', function() {
@@ -368,7 +399,7 @@ describe('interface', function() {
 
         piGlowInterface.create(mock, {ring_1: 100});
 
-        expect(mock.values).to.deep.equal([0,8,0,0,0,0,0,8,0,0,0,0,0,0,0,0,8,0]);
+        expect(mock.values).to.deep.equal([[0,8,0,0,0,0,0,8,0,0,0,0,0,0,0,0,8,0]]);
     });
 
     it('should write to the backend, the predefined stuff (array)', function() {
@@ -376,7 +407,7 @@ describe('interface', function() {
 
         piGlowInterface.create(mock, ['ring_2']);
 
-        expect(mock.values).to.deep.equal([0,0,255,0,0,0,0,0,255,0,0,0,0,0,0,255,0,0]);
+        expect(mock.values).to.deep.equal([[0,0,255,0,0,0,0,0,255,0,0,0,0,0,0,255,0,0]]);
     });
 
     it('should set the predefined stuff (object)', function() {
