@@ -27,18 +27,24 @@ describe('animationsBackend', function() {
         clock.restore();
     });
 
-    it('should write for one loop', function() {
+    it('should write for one loop, should call the callback', function() {
+        var called = false;
+
         animationInterface(new AnimationBackend({}, mock))
-                .set().to(piglowInterface(['ring_0'])).after('100ms')
-                .set().to(piglowInterface(['reset'])).after('100ms')
-                .set().to(piglowInterface(['ring_1'])).after('100ms')
-                .set().to(piglowInterface(['reset'])).after('100ms')
-                .set().to(piglowInterface(['ring_2'])).after('100ms')
-                .set().to(piglowInterface(['reset'])).after('100ms')
-                .repeat(1)
-                .start();
+            .set().to(piglowInterface(['ring_0'])).after('100ms')
+            .set().to(piglowInterface(['reset'])).after('100ms')
+            .set().to(piglowInterface(['ring_1'])).after('100ms')
+            .set().to(piglowInterface(['reset'])).after('100ms')
+            .set().to(piglowInterface(['ring_2'])).after('100ms')
+            .set().to(piglowInterface(['reset'])).after('100ms')
+            .repeat(1)
+            .start(function() {
+                called = true;
+            });
 
         clock.tick(5000);
+
+        expect(called).to.be.true;
 
         expect(mock.values).to.deep.equal([
                 [ 255, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255 ],
@@ -50,14 +56,20 @@ describe('animationsBackend', function() {
         ]);
     });
 
-    it('should write for two loop', function() {
+    it('should write for two loop, should call the callback', function() {
+        var called = false;
+
         animationInterface(new AnimationBackend({}, mock))
-                .set().to(piglowInterface(['ring_0'])).after('100ms')
-                .set().to(piglowInterface(['reset'])).after('100ms')
-                .repeat(2)
-                .start();
+            .set().to(piglowInterface(['ring_0'])).after('100ms')
+            .set().to(piglowInterface(['reset'])).after('100ms')
+            .repeat(2)
+            .start(function() {
+                called = true;
+            });
 
         clock.tick(5000);
+
+        expect(called).to.be.true;
 
         expect(mock.values).to.deep.equal([
             [ 255, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255 ],
@@ -67,12 +79,16 @@ describe('animationsBackend', function() {
         ]);
     });
 
-    it('should fade', function() {
+    it('should fade, should call the callback', function() {
+        var called = false;
+
         animationInterface(new AnimationBackend({interval:10}, mock))
-                .fade().to(piglowInterface(['red'])).after('100ms').in('30ms')
-                .fade().to(piglowInterface(['green'])).after('100ms').in('30ms')
-                .repeat(1)
-                .start();
+            .fade().to(piglowInterface(['red'])).after('100ms').in('30ms')
+            .fade().to(piglowInterface(['green'])).after('100ms').in('30ms')
+            .repeat(1)
+            .start(function() {
+                called = true;
+            });
 
         clock.tick(5000);
 
@@ -86,15 +102,21 @@ describe('animationsBackend', function() {
         ]);
     });
 
-    it('should fade', function() {
+    it('should fade, should call the callback', function() {
+        var called = false;
+
         animationInterface(new AnimationBackend({interval:10}, mock))
             .fade().to(piglowInterface(['red'])).after('100ms').in('60ms')
             .fade().to(piglowInterface(['green'])).after('100ms').in('60ms')
             .fade().to(piglowInterface(['reset'])).after('100ms').in('60ms')
             .repeat(1)
-            .start();
+            .start(function() {
+                called = true;
+            });
 
         clock.tick(5000);
+
+        expect(called).to.be.true;
 
         expect(mock.values).to.deep.equal([
             [ 42, 0, 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 42 ],
