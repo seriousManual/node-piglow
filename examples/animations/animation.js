@@ -2,9 +2,7 @@ var animation = require('../../lib/animations/index');
 var pi = require('../../lib/interface');
 
 var piGlowBackendMock = {
-    writeBytes: function(bytes) {
-        console.log(bytes);
-    }
+    writeBytes: function(bytes) {}
 };
 
 animation({interval:10, debug: true}, piGlowBackendMock)
