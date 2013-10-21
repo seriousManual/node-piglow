@@ -2,12 +2,9 @@ var args = require('optimist').argv;
 var animation = require('../../lib/animations/index');
 var pi = require('../../lib/interface');
 
-var PiGlowBackend = require('../../lib/PiGlowBackend');
-var myBackend = new PiGlowBackend();
-
 var debug = args.debug || args.d || false;
 
-var rings = animation({debug: debug, interval:10}, myBackend)
+var rings = animation({debug: debug, interval:10})
         .fade().to(pi(['ring_0'])).in('0.03s')
         .fade().to(pi(['ring_1'])).in('0.03s')
         .fade().to(pi(['ring_2'])).in('0.03s')
