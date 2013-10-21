@@ -181,31 +181,6 @@ piGlow.commitTransaction();
 
 This benefits performance especially when the LEDs are changed in high frequence.
 
-## Mocking
-
-This module also exposes its internal structure, with the possibility to invoke the piGlow interface with a injected mocking backend:
-```
-var piGlow = require('piglow');
-var PiGlowBackendMock = piGlow.BackendMock;
-var piGlowInterface = piGLow.piGlowInterface;
-
-var myMock = new PiGlowBackendMock();
-var myInterface = piGlowInterface(myMock);
-
-//lets hack
-myInterface.ring_0 = 255;
-```
-
-This way the module can be used in a non raspi environment for development or with a testing mock for unit tests.
-To implement your own mocks follow this interface:
-```
-function PiGlowMock() {}
-
-PiGlowMock.prototype.writeBytes = function(bytes, callback) {
-  //bytes is a array of 18 integer values between 0 and 255
-};
-```
-
 ## Animations
 An animation consists of a bunch of interface configurations that will be subsequently invoked.
 Between the different configurations transitions can be defined as well als transformation and invocation times.
@@ -292,6 +267,31 @@ For your convenience the are some additional ways of predefining LED values:
     //initialize with maximum brightness
     var c = pi(['ring_5']);
 ````
+
+## Mocking
+
+This module also exposes its internal structure, with the possibility to invoke the piGlow interface with a injected mocking backend:
+```
+var piGlow = require('piglow');
+var PiGlowBackendMock = piGlow.BackendMock;
+var piGlowInterface = piGLow.piGlowInterface;
+
+var myMock = new PiGlowBackendMock();
+var myInterface = piGlowInterface(myMock);
+
+//lets hack
+myInterface.ring_0 = 255;
+```
+
+This way the module can be used in a non raspi environment for development or with a testing mock for unit tests.
+To implement your own mocks follow this interface:
+```
+function PiGlowMock() {}
+
+PiGlowMock.prototype.writeBytes = function(bytes, callback) {
+  //bytes is a array of 18 integer values between 0 and 255
+};
+```
 
 ## Made with:
 - **node-ic2** https://github.com/kelly/node-i2c
