@@ -206,6 +206,20 @@ PiGlowMock.prototype.writeBytes = function(bytes, callback) {
 };
 ```
 
+## Animations
+An animation consists of a bunch of interface configurations that will be subsequently invoked.
+Between the different configurations transitions can be defined.
+
+### Usage
+````javascript
+animation({interval:10, debug: true}, piGlowBackendMock)
+    .set().to(pi(['ring_0'])).after('0.1s')
+    .set().to(pi(['ring_1'])).after('0.1s')
+    .set().to(pi(['ring_2'])).after('0.1s')
+    .repeat(3)
+    .start();
+````
+
 ## Made with:
 - **node-ic2** https://github.com/kelly/node-i2c
 - **seq** https://github.com/substack/node-seq/
