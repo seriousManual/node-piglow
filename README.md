@@ -217,7 +217,7 @@ Optional options object:
   * interval: defines in which interval LED updates should be made, default: 100
   * debug: activates debugging
 
-The optional backend object can be used to use a mocking backend (unit tests, non raspi environment etc).
+The optional backend object can be used to inject a mocking backend (unit tests, non raspi environment etc).
 
 #### fade()
 Opens up a new `fade` transition context.
