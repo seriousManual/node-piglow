@@ -305,7 +305,7 @@ var a = pi();
 a.ring_0 = 100;
 
 //initialize with predefined values
-var b = pi({'ring_0': 100, l_1_1: 10});
+var b = pi({'ring_0': 100, 'l_1_1': 10});
 
 //initialize with maximum brightness
 var c = pi(['ring_5']);
