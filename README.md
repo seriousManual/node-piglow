@@ -295,20 +295,20 @@ animation.jane({debug: true})
 ````
 
 ### Variations of interface configurations
-For your convenience the are some additional ways of predefining LED values:
+For your convenience there are some additional ways of predefining LED values:
 
 ````javascript
-    var pi = require('piglow').piGlowInterface;
+var pi = require('piglow').piGlowInterface;
 
-    //create and set
-    var a = pi();
-    a.ring_0 = 100;
+//create and set
+var a = pi();
+a.ring_0 = 100;
 
-    //initialize with predefined values
-    var b = pi({'ring_0': 100, l_1_1: 10});
+//initialize with predefined values
+var b = pi({'ring_0': 100, l_1_1: 10});
 
-    //initialize with maximum brightness
-    var c = pi(['ring_5']);
+//initialize with maximum brightness
+var c = pi(['ring_5']);
 ````
 
 ## Mocking
