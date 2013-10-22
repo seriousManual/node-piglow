@@ -17,6 +17,18 @@ This module offers an interface to control the individual LEDs.
 In action video:
 http://www.youtube.com/watch?v=s-rD8PfAke8
 
+## TOC
+
+* [Installation](#installation)
+* [Setup](#setup)
+* [Invocation](#invocation)
+* [Adressing](#adressing)
+* [Transactions](#transactions)
+* [Animations](#animations)
+* [Mocking](#mocking)
+* [Made with](#made-with)
+* [Used in](#used-in)
+
 ## Installation
 
 ````bash
@@ -37,7 +49,7 @@ i2c-dev
 ````
 
 ````bash
-$ sudo vi /etc/modprobe.d/raspi-blacklist.conf
+$ sudo vi /etc/modprobe.d/raspi-blacklist.confa
 ````
 
 Comment out blacklist i2c-bcm2708
