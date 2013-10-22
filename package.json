@@ -1,6 +1,6 @@
 {
   "name": "piglow",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "description": "javascript interface for the piglow",
   "main": "index.js",
   "author": "Manuel Ernst <zaphod84@gmx.de>",
