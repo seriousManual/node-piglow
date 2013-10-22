@@ -194,8 +194,13 @@ animation({interval:10, debug: true}, piGlowBackendMock)
     .set().to(pi(['ring_0'])).after('0.1s')
     .set().to(pi(['ring_1'])).after('0.1s')
     .set().to(pi(['ring_2'])).after('0.1s')
+    .fade().top(pi['leg_0']).after('1s').in('1s')
+    .fade().top(pi['leg_0']).after('1s').in('1s')
+    .fade().top(pi['leg_0']).after('1s').in('1s')
     .repeat(3)
-    .start();
+    .start(function() {
+        console.log('i looped 3 times, now Im done.');
+    });
 ````
 
 ### Api
