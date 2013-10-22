@@ -83,8 +83,8 @@ mock says:  [ 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 2
 var piGlow = require('piglow');
 
 //callback fires when board is initialized
-piGlow(function(error) {
-  //do something
+piGlow(function(error, pi) {
+    pi.all;
 });
 
 ```
@@ -103,59 +103,59 @@ If one preferrs percentage values, as a convenience function all values smaller 
 ### Individual LEDs
 ```
 //parameter sets the brightness:
-piGlow.l_0_0 = 100; //sets LED 1 of leg 1 to a brightness of 100 (of 255)
-piGlow.l_0_1 = 10; //sets LED 2 of leg 1 to a brightness of 10
-piGlow.l_0_1 = 0.5; //sets LED 2 of leg 1 to a brightness of 50% (=brightness of 127)
+pi.l_0_0 = 100; //sets LED 1 of leg 1 to a brightness of 100 (of 255)
+pi.l_0_1 = 10; //sets LED 2 of leg 1 to a brightness of 10
+pi.l_0_1 = 0.5; //sets LED 2 of leg 1 to a brightness of 50% (=brightness of 127)
 ...
-piGlow.l_2_5 = 200; //sets LED 6 of leg 3 to a brightness of 200
+pi.l_2_5 = 200; //sets LED 6 of leg 3 to a brightness of 200
 
 //shorthand form:
-piGlow.l_0_0; //sets LED 1 of leg 1 to a brightness of 255
+pi.l_0_0; //sets LED 1 of leg 1 to a brightness of 255
 ```
 
 ### Legs
 ```
-piGlow.leg_0 = 100; //sets all LEDs of leg 1 to a brightness of 100
+pi.leg_0 = 100; //sets all LEDs of leg 1 to a brightness of 100
 
 //shorthand
-piGlow.leg_0; //sets all LEDs of leg 1 to 255
+pi.leg_0; //sets all LEDs of leg 1 to 255
 ```
 
 ### Rings
 ```
-piGlow.ring_0 = 100; //sets LED 1 of leg 1, LED 1 of leg 2 and LED 1 of leg 3 to 100
+pi.ring_0 = 100; //sets LED 1 of leg 1, LED 1 of leg 2 and LED 1 of leg 3 to 100
 
 //shorthand
-piGlow.ring_0; //sets LED 1 of leg 1, LED 1 of leg 1 and LED 1 of leg 2 to 255
+pi.ring_0; //sets LED 1 of leg 1, LED 1 of leg 1 and LED 1 of leg 2 to 255
 ```
 
 As the rings are distinguishable by color (order from outer ring to the inner: red, orange, yellow, green, blue, white), they can be adressed via the rings color:
 ```
-piGlow.red = 100; //sets the first ring to a brightness of 100
+pi.red = 100; //sets the first ring to a brightness of 100
 
 //shorthand
-piGlow.red; //sets the first ring to maximum brightness
+pi.red; //sets the first ring to maximum brightness
 ```
 
 
 ### All LEDs
 ```
-piGlow.all = 100; //set all LEDs to 100
+pi.all = 100; //set all LEDs to 100
 
 //shorthand
-piGlow.all; //set all LEDs to 255 (watch your eyes)
+pi.all; //set all LEDs to 255 (watch your eyes)
 
-piGlow.reset; //set all LEDs to 0
+pi.reset; //set all LEDs to 0
 ```
 
 ### Random
 ```
-piGlow.random = 0.5;
+pi.random = 0.5;
 
 //shorthand
-piGlow.random;
+pi.random;
 ```
-The propbability of lighting up can be defined (`piGLow.random = 0.1;`) and is otherwise calculated via this formula: `(0.4 + Math.random() * 0.2);`.
+The propbability of lighting up can be defined (`pi.random = 0.1;`) and is otherwise calculated via this formula: `(0.4 + Math.random() * 0.2);`.
 The brightness is calculated via this formula: `parseInt(MAX_VALUE / 2 + (MAX_VALUE / 2 * Math.random()), 10)`
 
 ## Transactions
@@ -164,19 +164,19 @@ Each parameter that is set causes the backend to transfer the complete set of va
 Thus the following operation would cause three write operations:
 
 ```
-piGlow.l_0_1 = 100;
-piGlow.l_0_2 = 100;
-piGlow.l_0_3 = 100;
+pi.l_0_1 = 100;
+pi.l_0_2 = 100;
+pi.l_0_3 = 100;
 ```
 
 The piglow-interface offers the possibility to open up a transaction and to commit it when all changes have been made. So the following code will cause only one write to the hardware board:
 
 ```
-piGlow.startTransaction();
-piGlow.l_0_1 = 100;
-piGlow.l_0_2 = 100;
-piGlow.l_0_3 = 100;
-piGlow.commitTransaction();
+pi.startTransaction();
+pi.l_0_1 = 100;
+pi.l_0_2 = 100;
+pi.l_0_3 = 100;
+pi.commitTransaction();
 ```
 
 This benefits performance especially when the LEDs are changed in high frequence.
@@ -186,11 +186,16 @@ An animation consists of a bunch of interface configurations that will be subseq
 Between the different configurations transitions can be defined as well als transformation and invocation times.
 A chaining interface makes the configuration of animations super simple.
 
+Check the examples folder for animation examples.
+
 ### Usage
 ````javascript
-var pi = require('piglow').piGlowInterface;
+var piglow = require('piglow');
 
-animation({interval:10, debug: true}, piGlowBackendMock)
+var animation = piglow.animation;
+var pi = piglow.piGlowInterface;
+
+animation({interval:10, debug: true})
     .set().to(pi(['ring_0'])).after('0.1s')
     .set().to(pi(['ring_1'])).after('0.1s')
     .set().to(pi(['ring_2'])).after('0.1s')
@@ -255,6 +260,39 @@ Accepts an optional callback that will be called when the animation has been fin
 #### stop([noCallback])
 Stops the animation, if present the callback from the start command will be fired.
 If the parameter `noCallback` has been set, the callback will not be invoked.
+
+### Chaining animations
+
+It is also possible to chain animations.
+
+````javascript
+var piglow = require('piglow');
+var animation = piglow.animation;
+var pi = piglow.piGlowInterface;
+
+var rings = animation()
+        .set().to(pi(['ring_0'])).after('0.1s')
+        .set().to(pi(['ring_1'])).after('0.1s')
+        .set().to(pi(['ring_2'])).after('0.1s')
+        .set().to(pi(['ring_3'])).after('0.1s')
+        .set().to(pi(['ring_4'])).after('0.1s')
+        .set().to(pi(['ring_5'])).after('0.1s')
+        .repeat('1times');
+
+var legs = animation()
+        .set().to(pi(['leg_0'])).after('0.1s')
+        .set().to(pi(['leg_1'])).after('0.1s')
+        .set().to(pi(['leg_2'])).after('0.1s')
+        .repeat('1times');
+
+animation.jane({debug: true})
+        .chain(rings)
+        .chain(legs)
+        .repeat('2s')
+        .start(function() {
+            console.log( 'chain finished' );
+        });
+````
 
 ### Variations of interface configurations
 For your convenience the are some additional ways of predefining LED values:

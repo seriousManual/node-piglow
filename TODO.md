@@ -7,3 +7,4 @@
 * test for timerange parser
 * tests for jane
 * parallel animations
+* jane documentation
