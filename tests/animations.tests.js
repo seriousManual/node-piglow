@@ -32,11 +32,11 @@ describe('animationsBackend', function() {
 
         animationInterface(new AnimationBackend({}, mock))
             .set().to(piglowInterface(['ring_0'])).after('100ms')
-            .set().to(piglowInterface(['reset'])).after('100ms')
+            .set().to(piglowInterface()).after('100ms')
             .set().to(piglowInterface(['ring_1'])).after('100ms')
-            .set().to(piglowInterface(['reset'])).after('100ms')
+            .set().to(piglowInterface()).after('100ms')
             .set().to(piglowInterface(['ring_2'])).after('100ms')
-            .set().to(piglowInterface(['reset'])).after('100ms')
+            .set().to(piglowInterface()).after('100ms')
             .repeat(1)
             .start(function() {
                 called = true;
@@ -61,7 +61,7 @@ describe('animationsBackend', function() {
 
         animationInterface(new AnimationBackend({}, mock))
             .set().to(piglowInterface(['ring_0'])).after('100ms')
-            .set().to(piglowInterface(['reset'])).after('100ms')
+            .set().to(piglowInterface()).after('100ms')
             .repeat(2)
             .start(function() {
                 called = true;
@@ -108,7 +108,7 @@ describe('animationsBackend', function() {
         animationInterface(new AnimationBackend({interval:10}, mock))
             .fade().to(piglowInterface(['red'])).after('100ms').in('60ms')
             .fade().to(piglowInterface(['green'])).after('100ms').in('60ms')
-            .fade().to(piglowInterface(['reset'])).after('100ms').in('60ms')
+            .fade().to(piglowInterface()).after('100ms').in('60ms')
             .repeat(1)
             .start(function() {
                 called = true;
