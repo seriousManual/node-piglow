@@ -4,6 +4,9 @@ var PiGlowBackend = require('./lib/PiGlowBackend');
 var PiGlowBackendMock = require('./lib/PiGlowBackendMock');
 var animation = require('./lib/animations');
 
+/**
+ * convenience constructor function
+*/
 function createPiGlow(callback) {
     var myPiGlow = new PiGlowBackend();
     var myInterface = piGlowInterface(myPiGlow);
