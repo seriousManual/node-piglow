@@ -19,7 +19,6 @@
     "mocha": "~1.12.1",
     "chai": "~1.7.2",
     "sandboxed-module": "~0.2.2",
-    "cloneextend": "0.0.3",
     "sinon": "~1.7.3"
   },
   "keywords": [
