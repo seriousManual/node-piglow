@@ -1,6 +1,6 @@
 {
   "name": "piglow",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "javascript interface for the piglow",
   "main": "index.js",
   "author": "Manuel Ernst <zaphod84@gmx.de>",
@@ -13,7 +13,8 @@
     "i2c": "~0.1.4",
     "seq": "~0.3.5",
     "optimist": "~0.6.0",
-    "cloneextend": "0.0.3"
+    "cloneextend": "0.0.3",
+    "depugger": "0.0.3"
   },
   "devDependencies": {
     "mocha": "~1.12.1",
@@ -30,5 +31,8 @@
   ],
   "bin": {
     "piglow": "bin/piglow.js"
+  },
+ "scripts": {
+    "test": "./node_modules/.bin/mocha tests --timeout 5000"
   }
 }
