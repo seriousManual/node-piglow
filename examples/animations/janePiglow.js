@@ -13,7 +13,7 @@ var rings = animation({debug: debug, interval:10})
         .fade().to(pi(['ring_5'])).in('0.03s')
         .repeat('5times');
 
-var legs = animation({debug: debug, interval: 10}, myBackend)
+var legs = animation({debug: debug, interval: 10})
         .set().to(pi(['leg_0'])).after('0.03s')
         .set().to(pi(['leg_1'])).after('0.03s')
         .set().to(pi(['leg_2'])).after('0.03s')
