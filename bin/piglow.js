@@ -46,7 +46,6 @@ createInterface(argv, function(error, piGlowInterface) {
     });
 
     piGlowInterface.commitTransaction();
-
 });
 
 function createInterface(options, callback) {
