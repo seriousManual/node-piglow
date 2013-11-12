@@ -354,6 +354,5 @@ PiGlowMock.prototype.writeBytes = function(bytes, callback) {
 - **optimist** https://github.com/substack/node-optimist/
 
 ## Used in
-- **piglow-load** https://github.com/zaphod1984/node-piglow-load
 - **piglow-system** https://github.com/zaphod1984/node-piglow-system
 - **piglow-clock** https://github.com/zaphod1984/node-piglow-clock
