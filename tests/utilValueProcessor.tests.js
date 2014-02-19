@@ -28,6 +28,10 @@ describe('valueProcess', function() {
         it('should interprete numbers < 1 as percents, 99%', function() {
             expect(processValue(0.99)).to.equal(239);
         });
+
+        it('should interprete 1 not as an percentage value', function() {
+            expect(processValue(1)).to.equal(1);
+        });
     });
 
     describe('errors', function() {
