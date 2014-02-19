@@ -53,12 +53,12 @@ describe('piGlowBackend', function() {
             }
         });
 
-        var i = new Backend();
-
-        i
+        new Backend()
             .on('initialize', function() {
-                i.writeBytes([1,2,3], function() {
-                    var data = i._wire;
+                var self = this;
+
+                this.writeBytes([1,2,3], function() {
+                    var data = self._wire;
 
                     expect(data._addr).to.equal(84);
                     expect(data._options).to.deep.equal({device: '/dev/i2c-1'});
