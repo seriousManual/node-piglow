@@ -6,6 +6,8 @@
 
 [![NPM](https://nodei.co/npm-dl/piglow.png?months=3)](https://nodei.co/npm/piglow/)
 
+# v1 has api breaking changes. animations are moved to a seperate module, the internal backend mechanics are completely restructured.
+
 The piGlow is a little LED-Board for the [Raspberry Pi](http://www.raspberrypi.org/) sold by [Pimoroni](http://shop.pimoroni.com/products/piglow). It features 18 LEDs in six different colors (white, blue, green, yellow, orange, red) arranged like a vortex:
 
 <p align="center">
