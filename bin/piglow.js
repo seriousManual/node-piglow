@@ -6,34 +6,34 @@ var piGlow = require('../');
 delete argv._;
 delete argv['$0'];
 
-if(argv.h || argv.help) {
+if (argv.h || argv.help) {
     showHelp();
     process.exit(0);
 }
 
-if(argv.v || argv.version) {
+if (argv.v || argv.version) {
     showVersion();
     process.exit(0);
 }
 
-createInterface(argv, function(error, piGlowInterface) {
-    if(error) {
+createInterface(argv, function (error, piGlowInterface) {
+    if (error) {
         console.error('could not create interface: ', error.message);
         process.exit(1);
     }
 
-    if(Object.keys(argv).length === 0) {
+    if (Object.keys(argv).length === 0) {
         console.error('No parameter has been set');
         process.exit(1);
     }
 
     piGlowInterface.startTransaction();
 
-    Object.keys(argv).forEach(function(key) {
+    Object.keys(argv).forEach(function (key) {
         var value = argv[key];
 
-        if(Object.hasOwnProperty.call(piGlowInterface, key)) {
-            if(value === true) {
+        if (Object.hasOwnProperty.call(piGlowInterface, key)) {
+            if (value === true) {
                 //shorthand versions
                 piGlowInterface[key];
             } else {
@@ -49,14 +49,14 @@ createInterface(argv, function(error, piGlowInterface) {
 });
 
 function createInterface(options, callback) {
-    if(options.mocked === true || options.m === true) {
+    if (options.mocked === true || options.m === true) {
         delete options.mocked;
         delete options.m;
 
         var myMock = new piGlow.BackendMock();
         var myInterface = piGlow.piGlowInterface(myMock);
 
-        setImmediate(function() {
+        setImmediate(function () {
             callback(null, myInterface);
         });
     } else {
@@ -70,32 +70,32 @@ function showVersion() {
 
 function showHelp() {
     var help = [
-            'Usage: piglow [options] [arguments]',
-            '',
-            'Options:',
-            '  -m, --mocked: sets up a mocking backend, script can be executed on non raspi environment',
-            '  -h, --help:   this help',
-            '',
-            'Arguments:',
-            '  Single LEDs:',
-            '    --l_0_0 100:     lights up the first led of the first leg',
-            '    --l_0_0:         shorthand version, lights up first led of first leg at max brightness',
-            '    available range: l_0_0 - l_0_5, l_1_0 - l_1_5, l_2_0 - l_2_5',
-            '',
-            '  Legs:',
-            '    --leg_0 100:     lights up the first leg at brightness 100',
-            '    --leg_0:         lights up the first leg at max brightness',
-            '    available range: leg_0 - leg_2',
-            '',
-            '  Rings:',
-            '    --ring_0 100:    lights up the outer ring a brightness 100',
-            '    --leg_0:         lights up the outer ring at max brightness',
-            '    available range: ring_0 - ring_5',
-            '',
-            '  Example:',
-            '    piglow --mocked --ring_0 100 --leg_1 --l_2_5 10',
-            '',
-            '',
+        'Usage: piglow [options] [arguments]',
+        '',
+        'Options:',
+        '  -m, --mocked: sets up a mocking backend, script can be executed on non raspi environment',
+        '  -h, --help:   this help',
+        '',
+        'Arguments:',
+        '  Single LEDs:',
+        '    --l_0_0 100:     lights up the first led of the first leg',
+        '    --l_0_0:         shorthand version, lights up first led of first leg at max brightness',
+        '    available range: l_0_0 - l_0_5, l_1_0 - l_1_5, l_2_0 - l_2_5',
+        '',
+        '  Legs:',
+        '    --leg_0 100:     lights up the first leg at brightness 100',
+        '    --leg_0:         lights up the first leg at max brightness',
+        '    available range: leg_0 - leg_2',
+        '',
+        '  Rings:',
+        '    --ring_0 100:    lights up the outer ring a brightness 100',
+        '    --leg_0:         lights up the outer ring at max brightness',
+        '    available range: ring_0 - ring_5',
+        '',
+        '  Example:',
+        '    piglow --mocked --ring_0 100 --leg_1 --l_2_5 10',
+        '',
+        ''
     ];
 
     console.log(help.join('\n'));
