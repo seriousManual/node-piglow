@@ -17,10 +17,9 @@ describe('interface', function() {
 
     beforeEach(function() {
         ti = piGlowInterface();
-        console.log( 'aaaa' );
     });
 
-    describe('single leds', function() {
+    describe.only('single leds', function() {
         it('l_0_0 (shorthand)', function() {
             ti.l_0_0;
             expect(ti.values).to.deep.equal({
@@ -33,7 +32,7 @@ describe('interface', function() {
         it('l_0_0', function() {
             ti.l_0_0 = 100;
             expect(ti.values).to.deep.equal({
-                l_0_0: 255, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_0_0: 100, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
                 l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
                 l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
             });
@@ -41,112 +40,200 @@ describe('interface', function() {
 
         it('l_0_1 (shorthand)', function() {
             ti.l_0_1;
-            expect(ti.values).to.deep.equal([0,255,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 255, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_0_1', function() {
             ti.l_0_1 = 100;
-            expect(ti.values).to.deep.equal([0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 100, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_0_2 (shorthand)', function() {
             ti.l_0_2;
-            expect(ti.values).to.deep.equal([0,0,255,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 255, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_0_2', function() {
             ti.l_0_2 = 100;
-            expect(ti.values).to.deep.equal([0,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 100, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_0_3 (shorthand)', function() {
             ti.l_0_3;
-            expect(ti.values).to.deep.equal([0,0,0,255,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 255, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_0_3', function() {
             ti.l_0_3 = 100;
-            expect(ti.values).to.deep.equal([0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 100, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_0_4 (shorthand)', function() {
             ti.l_0_4;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 255, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_0_4', function() {
             ti.l_0_4 = 100;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 100, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_0_5 (shorthand)', function() {
             ti.l_0_5;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,0,0,0,255,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 255,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_0_5', function() {
             ti.l_0_5 = 100;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 100,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_0 (shorthand)', function() {
             ti.l_1_0;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,255,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 255, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_0', function() {
             ti.l_1_0 = 100;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 100, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_1 (shorthand)', function() {
             ti.l_1_1;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,255,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 255, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_1', function() {
             ti.l_1_1 = 100;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 100, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_2 (shorthand)', function() {
             ti.l_1_2;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,255,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 255, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_2', function() {
             ti.l_1_2 = 100;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 100, l_1_3: 0, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_3 (shorthand)', function() {
             ti.l_1_3;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,255,0,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 255, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_3', function() {
             ti.l_1_3 = 100;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 100, l_1_4: 0, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_4 (shorthand)', function() {
             ti.l_1_4;
-            expect(ti.values).to.deep.equal([0,0,0,0,255,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 255, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_4', function() {
             ti.l_1_4 = 100;
-            expect(ti.values).to.deep.equal([0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 100, l_1_5: 0,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_5 (shorthand)', function() {
             ti.l_1_5;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,255,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 255,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_1_5', function() {
             ti.l_1_5 = 100;
-            expect(ti.values).to.deep.equal([0,0,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0]);
+            expect(ti.values).to.deep.equal({
+                l_0_0: 0, l_0_1: 0, l_0_2: 0, l_0_3: 0, l_0_4: 0, l_0_5: 0,
+                l_1_0: 0, l_1_1: 0, l_1_2: 0, l_1_3: 0, l_1_4: 0, l_1_5: 100,
+                l_2_0: 0, l_2_1: 0, l_2_2: 0, l_2_3: 0, l_2_4: 0, l_2_5: 0
+            });
         });
 
         it('l_2_0 (shorthand)', function() {

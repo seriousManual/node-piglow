@@ -2,7 +2,6 @@ var processValue = require('./lib/util/valueProcessor');
 var piGlowInterface = require('./lib/interface');
 var PiGlowBackend = require('./lib/PiGlowBackend');
 var PiGlowBackendMock = require('./lib/PiGlowBackendMock');
-var animation = require('./lib/animations');
 
 /**
  * convenience constructor function
@@ -24,6 +23,5 @@ createPiGlow.BackendMock = PiGlowBackendMock;
 createPiGlow.Backend = PiGlowBackend;
 createPiGlow.piGlowInterface = piGlowInterface;
 createPiGlow.processValue = processValue;
-createPiGlow.animation = animation;
 
 module.exports = createPiGlow;

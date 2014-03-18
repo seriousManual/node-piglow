@@ -54,7 +54,7 @@ function createInterface(options, callback) {
         delete options.m;
 
         var myMock = new piGlow.BackendMock();
-        var myInterface = piGlow.piGlowInterface.create(myMock);
+        var myInterface = piGlow.piGlowInterface(myMock);
 
         setImmediate(function() {
             callback(null, myInterface);

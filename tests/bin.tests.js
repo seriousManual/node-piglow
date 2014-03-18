@@ -8,7 +8,7 @@ describe('piglow bin', function() {
     it('should return no error when in mocked mode', function(done) {
         runCommand(['--mocked --reset'], function(error, stdout, stderror) {
             expect(error).to.be.null;
-            expect(stdout).to.match(/0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0/);
+            expect(stdout).to.equal('{"l_0_0":0,"l_0_1":0,"l_0_2":0,"l_0_3":0,"l_0_4":0,"l_0_5":0,"l_1_0":0,"l_1_1":0,"l_1_2":0,"l_1_3":0,"l_1_4":0,"l_1_5":0,"l_2_0":0,"l_2_1":0,"l_2_2":0,"l_2_3":0,"l_2_4":0,"l_2_5":0}\n');
             done();
         });
     });
@@ -40,7 +40,7 @@ describe('piglow bin', function() {
     it('should set the values according to parameters', function(done) {
         runCommand(['--mocked --l_0_0 100'], function(error, stdout, stderror) {
             expect(error).to.be.null;
-            expect(stdout).to.match(/8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0/);
+            expect(stdout).to.equal('{"l_0_0":100,"l_0_1":0,"l_0_2":0,"l_0_3":0,"l_0_4":0,"l_0_5":0,"l_1_0":0,"l_1_1":0,"l_1_2":0,"l_1_3":0,"l_1_4":0,"l_1_5":0,"l_2_0":0,"l_2_1":0,"l_2_2":0,"l_2_3":0,"l_2_4":0,"l_2_5":0}\n');
             done();
         });
     });
@@ -48,7 +48,7 @@ describe('piglow bin', function() {
     it('should set the values according to parameters, shorthand', function(done) {
         runCommand(['--mocked --l_0_0'], function(error, stdout, stderror) {
             expect(error).to.be.null;
-            expect(stdout).to.match(/255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0/);
+            expect(stdout).to.equal('{"l_0_0":255,"l_0_1":0,"l_0_2":0,"l_0_3":0,"l_0_4":0,"l_0_5":0,"l_1_0":0,"l_1_1":0,"l_1_2":0,"l_1_3":0,"l_1_4":0,"l_1_5":0,"l_2_0":0,"l_2_1":0,"l_2_2":0,"l_2_3":0,"l_2_4":0,"l_2_5":0}\n');
             done();
         });
     });
@@ -56,7 +56,7 @@ describe('piglow bin', function() {
     it('should set multiple values', function(done) {
         runCommand(['--mocked --l_0_0 100 --ring_1'], function(error, stdout, stderror) {
             expect(error).to.be.null;
-            expect(stdout).to.match(/8, 255, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0/);
+            expect(stdout).to.equal('{"l_0_0":100,"l_0_1":255,"l_0_2":0,"l_0_3":0,"l_0_4":0,"l_0_5":0,"l_1_0":0,"l_1_1":255,"l_1_2":0,"l_1_3":0,"l_1_4":0,"l_1_5":0,"l_2_0":0,"l_2_1":255,"l_2_2":0,"l_2_3":0,"l_2_4":0,"l_2_5":0}\n');
             done();
         });
     });
