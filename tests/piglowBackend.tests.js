@@ -1,20 +1,24 @@
 var expect = require('chai').expect;
 var sand = require('sandboxed-module');
 
-function I2cMock(address, options) {
-    this._addr = address;
-    this._options = options;
-    this._adresses = [];
-    this._written = [];
+function createI2cMock(throwError) {
+    return function I2cMock(address, options) {
+        this._addr = address;
+        this._options = options;
+        this._adresses = [];
+        this._written = [];
 
-    this.setAddress = function (address) {
-        this._adresses.push(address);
-    };
+        this.setAddress = function (address) {
+            if (throwError) throw new Error('foo');
 
-    this.writeBytes = function (address, values, callback) {
-        this._written.push([address, values]);
+            this._adresses.push(address);
+        };
 
-        process.nextTick(callback);
+        this.writeBytes = function (address, values, callback) {
+            this._written.push([address, values]);
+
+            process.nextTick(callback);
+        };
     };
 }
 
@@ -22,7 +26,7 @@ describe('piGlowBackend', function () {
     it('should initialize correctly', function (done) {
         var Backend = sand.require('../lib/PiGlowBackend', {
             requires: {
-                'i2c': I2cMock
+                'i2c': createI2cMock()
             }
         });
 
@@ -40,13 +44,11 @@ describe('piGlowBackend', function () {
                 done();
             });
     });
-});
 
-describe('piGlowBackend', function () {
     it('should initialize and write bytes, should remap values, should do gamma correction', function (done) {
         var Backend = sand.require('../lib/PiGlowBackend', {
             requires: {
-                'i2c': I2cMock
+                'i2c': createI2cMock()
             }
         });
 
@@ -72,6 +74,22 @@ describe('piGlowBackend', function () {
 
                     done();
                 });
+            });
+    });
+
+    it('should throw', function (done) {
+        var Backend = sand.require('../lib/PiGlowBackend', {
+            requires: {
+                'i2c': createI2cMock(true)
+            }
+        });
+
+        new Backend()
+            .on('error', function(error) {
+                expect(error).not.to.be.null;
+                expect(error.message).to.equal('foo');
+
+                done();
             });
     });
 });
