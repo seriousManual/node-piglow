@@ -43,7 +43,7 @@ describe('piGlowBackend', function () {
 });
 
 describe('piGlowBackend', function () {
-    it('should initialize and write bytes', function (done) {
+    it('should initialize and write bytes, should remap values, should do gamma correction', function (done) {
         var Backend = sand.require('../lib/PiGlowBackend', {
             requires: {
                 'i2c': I2cMock
@@ -55,9 +55,9 @@ describe('piGlowBackend', function () {
                 var that = this;
 
                 this.update({
-                    l_0_0: 1, l_0_1: 2, l_0_2: 3, l_0_3: 4, l_0_4: 5, l_0_5: 6,
-                    l_1_0: 7, l_1_1: 8, l_1_2: 9, l_1_3: 10, l_1_4: 11, l_1_5: 12,
-                    l_2_0: 13, l_2_1: 14, l_2_2: 15, l_2_3: 16, l_2_4: 17, l_2_5: 18
+                    l_0_0: 100, l_0_1: 101, l_0_2: 102, l_0_3: 103, l_0_4: 104, l_0_5: 105,
+                    l_1_0: 150, l_1_1: 151, l_1_2: 152, l_1_3: 153, l_1_4: 154, l_1_5: 155,
+                    l_2_0: 200, l_2_1: 201, l_2_2: 202, l_2_3: 203, l_2_4: 204, l_2_5: 205
                 }, function () {
                     var data = that._wire;
 
@@ -66,7 +66,7 @@ describe('piGlowBackend', function () {
                     expect(data._written).to.deep.equal([
                         [0, [1]],
                         [19, [255, 255, 255]],
-                        [1, [1, 2, 3, 4, 11, 10, 7, 8, 9, 12, 18, 17, 6, 16, 5, 15, 14, 13]],
+                        [1, [8, 8, 9, 9, 28, 27, 26, 26, 27, 29, 86, 84, 9, 82, 9, 80, 79, 77 ]],
                         [22, [255]]
                     ]);
 
