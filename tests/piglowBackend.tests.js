@@ -14,7 +14,7 @@ function I2cMock(address, options) {
     this.writeBytes = function(address, values, callback) {
         this._written.push([address, values]);
 
-        setImmediate(callback);
+        process.nextTick(callback);
     };
 }
 
@@ -53,7 +53,7 @@ describe('piGlowBackend', function() {
             .on('initialize', function() {
                 var self = this;
 
-                this.writeBytes([1,2,3], function() {
+                this.update([1,2,3], function() {
                     var data = self._wire;
 
                     expect(data._addr).to.equal(84);
