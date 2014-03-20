@@ -1,6 +1,6 @@
 var repl = require('repl');
 
-var PiGlowBackendMock = require('../lib/PiGlowBackendMock');
+var PiGlowBackendMock = require('../lib/PiGlowBackendMockPrettyPrint');
 var piGlowInterface = require('../lib/interface');
 
 var myMock = new PiGlowBackendMock();
