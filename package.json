@@ -12,17 +12,14 @@
   "dependencies": {
     "i2c": "~0.1.4",
     "seq": "~0.3.5",
-    "optimist": "~0.6.0",
-    "cloneextend": "0.0.3",
-    "ptic": "~0.2.0",
-    "depugger": "~0.1.3",
-    "hirestime": "~0.2.4"
+    "optimist": "~0.6.1"
   },
   "devDependencies": {
     "mocha": "~1.12.1",
     "chai": "~1.7.2",
-    "sandboxed-module": "~0.2.2",
-    "sinon": "~1.7.3"
+    "sandboxed-module": "~0.3.0",
+    "sinon": "~1.9.0",
+    "cloneextend": "0.0.3"
   },
   "keywords": [
     "pimoroni",

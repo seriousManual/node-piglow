@@ -2,7 +2,7 @@ var processValue = require('./lib/util/valueProcessor');
 var piGlowInterface = require('./lib/interface');
 var PiGlowBackend = require('./lib/PiGlowBackend');
 var PiGlowBackendMock = require('./lib/PiGlowBackendMock');
-var animation = require('./lib/animations');
+var BackendMockPrettyPrint = require('./lib/PiGlowBackendMockPrettyPrint');
 
 /**
  * convenience constructor function
@@ -20,10 +20,10 @@ function createPiGlow(callback) {
         });
 }
 
-createPiGlow.BackendMock = PiGlowBackendMock;
 createPiGlow.Backend = PiGlowBackend;
+createPiGlow.BackendMock = PiGlowBackendMock;
+createPiGlow.BackendMockPrettyPrint = BackendMockPrettyPrint;
 createPiGlow.piGlowInterface = piGlowInterface;
 createPiGlow.processValue = processValue;
-createPiGlow.animation = animation;
 
 module.exports = createPiGlow;

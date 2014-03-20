@@ -1,5 +1,7 @@
 # node-piglow
 
+# v1 has api breaking changes. animations are stripped out and will be appearing in a sperate [module](http://npmjs.org/package/piglow-animations) shortly.
+
 [![Build Status](https://travis-ci.org/zaphod1984/node-piglow.png)](https://travis-ci.org/zaphod1984/node-piglow)
 
 [![NPM](https://nodei.co/npm/piglow.png)](https://nodei.co/npm/piglow/)
@@ -24,9 +26,7 @@ http://www.youtube.com/watch?v=s-rD8PfAke8
 * [Invocation](#invocation)
 * [Adressing](#adressing)
 * [Transactions](#transactions)
-* [Animations](#animations)
 * [Mocking](#mocking)
-* [Made with](#made-with)
 * [Used in](#used-in)
 
 ## Installation
@@ -72,13 +72,29 @@ When the parameter `mocked` is assigned, the parameters will not be passed to th
 
 ````bash
 $ piglow --leg_1 100 --mocked
-mock says:  [ 0, 0, 0, 0, 8, 8, 8, 8, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0 ]
+
+piglowConfiguration:
+       leg0    leg1    leg2
+ring0  0       100     0
+ring1  0       100     0
+ring2  0       100     0
+ring3  0       100     0
+ring4  0       100     0
+ring5  0       100     0
 ````
 
 Example
 ````bash
 piglow --mocked --ring_0 100 --leg_1 --l_2_5 10
-mock says:  [ 8, 0, 0, 0, 255, 255, 255, 255, 255, 255, 1, 0, 0, 0, 0, 0, 0, 8 ]
+
+piglowConfiguration:
+       leg0    leg1    leg2
+ring0  100     255     100
+ring1  0       255     0
+ring2  0       255     0
+ring3  0       255     0
+ring4  0       255     0
+ring5  0       255     10
 ````
 
 
@@ -86,7 +102,15 @@ The shorthand version can be used on the command line as well:
 
 ````bash
 $ piglow --all --mocked
-mock says:  [ 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 ]
+
+piglowConfiguration:
+       leg0    leg1    leg2
+ring0  255     255     255
+ring1  255     255     255
+ring2  255     255     255
+ring3  255     255     255
+ring4  255     255     255
+ring5  255     255     255
 ````
 
 ### From your script
@@ -193,139 +217,10 @@ pi.commitTransaction();
 
 This benefits performance especially when the LEDs are changed in high frequence.
 
-## Animations
-An animation consists of a bunch of interface configurations that will be subsequently invoked.
-Between the different configurations transitions can be defined as well als transformation and invocation times.
-A chaining interface makes the configuration of animations super simple.
-
-Check the examples folder for animation examples.
-
-### Usage
-````javascript
-var piglow = require('piglow');
-
-var animation = piglow.animation;
-var pi = piglow.piGlowInterface;
-
-animation({interval:10, debug: true})
-    .set().to(pi(['ring_0'])).after('0.1s')
-    .set().to(pi(['ring_1'])).after('0.1s')
-    .set().to(pi(['ring_2'])).after('0.1s')
-    .fade().to(pi['leg_0']).after('1s').in('1s')
-    .fade().to(pi['leg_1']).after('1s').in('1s')
-    .fade().to(pi['leg_2']).after('1s').in('1s')
-    .repeat(3)
-    .start(function() {
-        console.log('i looped 3 times, now Im done.');
-    });
-````
-
-### Api
-
-#### Constructor([options, [backend]])
-Creates a new animation object.
-
-Optional options object:
-  * interval: defines in which interval LED updates should be made, default: 100
-  * debug: activates debugging
-
-The optional backend object can be used to inject a mocking backend (unit tests, non raspi environment etc).
-
-#### fade()
-Opens up a new `fade` transition context.
-
-#### set()
-Opens up a new `set` transition context.
-
-#### to(piGlowInterface)
-This directive relates to a certain context, openend by `set` or `fade`.
-It defines to which LED configuration a transition should morph.
-
-#### repeat(timeRange)
-Defines how often or how long a animation should be run.
-Possible parameters:
-````javacript
-    animation().repeat(1);          //runs exactly once
-    animation().repeat('1time');    //runs exactly once
-    animation().repeat('2times');   //runs exactly two times
-    animation().repeat('10s');      //runs for 10seconds (animation loops will always be completed)
-    animation().repeat('0.1s');     //runs for 100ms (animation loops will always be completed)
-    animation().repeat('100ms');    //runs for 100ms (animation loops will always be completed)
-````
-
-If no repeat directive has been set the animation will run forever.
-
-#### after(timeRange)
-This directive relates to a certain context, opened by `set` or `fade`.
-Defines how much time should pass until the transition gets started.
-Check [Repeat](#repeat) for possible values.
-
-#### in(timeRange)
-This directive relates to a certain context, opened `fade`.
-Defines how much time the fade transition should run.
-Check [Repeat](#repeat) for possible values.
-
-#### start([callback])
-Starts the animation.
-Accepts an optional callback that will be called when the animation has been finished.
-
-#### stop([noCallback])
-Stops the animation, if present the callback from the start command will be fired.
-If the parameter `noCallback` has been set, the callback will not be invoked.
-
-### Chaining animations
-
-It is also possible to chain animations.
-
-````javascript
-var piglow = require('piglow');
-var animation = piglow.animation;
-var pi = piglow.piGlowInterface;
-
-var rings = animation()
-        .set().to(pi(['ring_0'])).after('0.1s')
-        .set().to(pi(['ring_1'])).after('0.1s')
-        .set().to(pi(['ring_2'])).after('0.1s')
-        .set().to(pi(['ring_3'])).after('0.1s')
-        .set().to(pi(['ring_4'])).after('0.1s')
-        .set().to(pi(['ring_5'])).after('0.1s')
-        .repeat('1times');
-
-var legs = animation()
-        .set().to(pi(['leg_0'])).after('0.1s')
-        .set().to(pi(['leg_1'])).after('0.1s')
-        .set().to(pi(['leg_2'])).after('0.1s')
-        .repeat('1times');
-
-animation.jane({debug: true})
-        .chain(rings)
-        .chain(legs)
-        .repeat('2s')
-        .start(function() {
-            console.log( 'chain finished' );
-        });
-````
-
-### Variations of interface configurations
-For your convenience there are some additional ways of predefining LED values:
-
-````javascript
-var pi = require('piglow').piGlowInterface;
-
-//create and set
-var a = pi();
-a.ring_0 = 100;
-
-//initialize with predefined values
-var b = pi({'ring_0': 100, 'l_1_1': 10});
-
-//initialize with maximum brightness
-var c = pi(['ring_5']);
-````
-
 ## Mocking
 
-This module also exposes its internal structure, with the possibility to invoke the piGlow interface with a injected mocking backend:
+This module also exposes its internal structure, with the possibility to invoke the piGlow interface with a injected mocking backend.
+There are two backends, `BackendMock` prints the piglow data as JSON, `BackendMockPrettyPrint` structures the data in a readable way.
 ```
 var piGlow = require('piglow');
 var PiGlowBackendMock = piGlow.BackendMock;
@@ -343,8 +238,15 @@ To implement your own mocks follow this interface:
 ```
 function PiGlowMock() {}
 
-PiGlowMock.prototype.writeBytes = function(bytes, callback) {
-  //bytes is a array of 18 integer values between 0 and 255
+PiGlowMock.prototype.update = function(piGlowConfiguration, callback) {
+  /*
+    piGlowConfiguration is a object in the following form:
+    {
+        "l_0_0":0, "l_0_1":0, "l_0_2":0, "l_0_3":0, "l_0_4":0, "l_0_5":0,
+        "l_1_0":0, "l_1_1":0, "l_1_2":0, "l_1_3":0, "l_1_4":0, "l_1_5":0,
+        "l_2_0":0, "l_2_1":0, "l_2_2":0, "l_2_3":0, "l_2_4":0, "l_2_5":0
+    }
+  */
 };
 ```
 
