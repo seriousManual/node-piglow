@@ -53,7 +53,7 @@ function createInterface(options, callback) {
         delete options.mocked;
         delete options.m;
 
-        var myMock = new piGlow.BackendMock();
+        var myMock = new piGlow.BackendMockPrettyPrint();
         var myInterface = piGlow.piGlowInterface(myMock);
 
         setImmediate(function () {
