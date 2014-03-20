@@ -1,5 +1,7 @@
 var repl = require('repl');
 
+//TODO: reset piglow on repl.end
+
 var PiGlowBackend = require('../lib/PiGlowBackend');
 var piGlowInterface = require('../lib/interface');
 
