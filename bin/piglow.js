@@ -77,6 +77,7 @@ function showHelp() {
         '',
         'Options:',
         '  -m, --mocked: sets up a mocking backend, script can be executed on non raspi environment',
+        '  --mockedjson: sets up a mocking backend hat outputs the piglow data as json',
         '  -h, --help:   this help',
         '',
         'Arguments:',
