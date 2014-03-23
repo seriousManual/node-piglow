@@ -1,6 +1,6 @@
 # node-piglow
 
-**v1 has api breaking changes. animations are stripped out and will be appearing in a sperate [module](http://npmjs.org/package/piglow-animations) shortly.**
+**v1 has api breaking changes. animations are no longer included they now appear in a seperate [module](https://www.npmjs.org/package/piglow-animations).**
 
 [![Build Status](https://travis-ci.org/zaphod1984/node-piglow.png)](https://travis-ci.org/zaphod1984/node-piglow)
 
