@@ -251,5 +251,6 @@ PiGlowMock.prototype.update = function(piGlowConfiguration, callback) {
 ```
 
 ## Used in
+- **piglow-animations** https://github.com/zaphod1984/node-piglow-animations
 - **piglow-system** https://github.com/zaphod1984/node-piglow-system
 - **piglow-clock** https://github.com/zaphod1984/node-piglow-clock
