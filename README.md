@@ -26,6 +26,7 @@ http://www.youtube.com/watch?v=s-rD8PfAke8
 * [Invocation](#invocation)
 * [Adressing](#adressing)
 * [Transactions](#transactions)
+* [Animations](#animations)
 * [Mocking](#mocking)
 * [Used in](#used-in)
 
@@ -217,6 +218,16 @@ pi.commitTransaction();
 
 This benefits performance especially when the LEDs are changed in high frequence.
 
+## Animations
+
+Do you like your piglow animated?
+<p align="center">
+    <img src="https://raw.githubusercontent.com/zaphod1984/node-piglow-animations/master/pics/animation.gif" />
+</p>
+
+Checkout [piglow-animations](https://www.npmjs.org/package/piglow-animations)!
+
+
 ## Mocking
 
 This module also exposes its internal structure, with the possibility to invoke the piGlow interface with a injected mocking backend.
@@ -251,6 +262,5 @@ PiGlowMock.prototype.update = function(piGlowConfiguration, callback) {
 ```
 
 ## Used in
-- **piglow-animations** https://github.com/zaphod1984/node-piglow-animations
 - **piglow-system** https://github.com/zaphod1984/node-piglow-system
 - **piglow-clock** https://github.com/zaphod1984/node-piglow-clock
