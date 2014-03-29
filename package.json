@@ -10,15 +10,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "i2c": "~0.1.4",
-    "optimist": "~0.6.1"
+    "i2c": "~0.1.4"
   },
   "devDependencies": {
     "mocha": "~1.12.1",
     "chai": "~1.7.2",
-    "sandboxed-module": "~0.3.0",
-    "sinon": "~1.9.0",
-    "cloneextend": "0.0.3"
+    "sandboxed-module": "~0.3.0"
   },
   "keywords": [
     "pimoroni",
@@ -27,9 +24,6 @@
     "led",
     "i2c"
   ],
-  "bin": {
-    "piglow": "bin/piglow.js"
-  },
   "scripts": {
     "test": "./node_modules/.bin/mocha tests --timeout 5000"
   }

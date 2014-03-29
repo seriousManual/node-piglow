@@ -1,4 +1,3 @@
-var ce = require('cloneextend');
 var expect = require('chai').expect;
 
 var piGlowInterface = require('../lib/interface');
@@ -7,7 +6,7 @@ function createBackendMock() {
     return {
         values: [],
         update: function (bytes) {
-            this.values.push(ce.clone(bytes));
+            this.values.push(clone(bytes));
         }
     };
 }
@@ -783,3 +782,13 @@ describe('interface', function () {
         });
     });
 });
+
+function clone(obj) {
+    var res = {};
+
+    Object.keys(obj).forEach(function(key) {
+        res[key] = obj[key];
+    });
+
+    return res;
+}
