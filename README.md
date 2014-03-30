@@ -1,6 +1,6 @@
 # node-piglow
 
-**v2 does not contain the commandline interface and the animations interface anymore. See [node-piglow-cli](https://github.com/zaphod1984/node-piglow-cli) and [node-piglow-animations](https://github.com/zaphod1984/node-piglow-animations).**
+**v2 does not contain the commandline interface and the animations interface anymore. They are moved to two seperate modules. ([node-piglow-cli](https://github.com/zaphod1984/node-piglow-cli) and [node-piglow-animations](https://github.com/zaphod1984/node-piglow-animations))**
 
 [![Build Status](https://travis-ci.org/zaphod1984/node-piglow.png)](https://travis-ci.org/zaphod1984/node-piglow)
 
