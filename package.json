@@ -10,7 +10,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "i2c": "~0.1.4"
+    "i2c": "~0.1.4",
+    "seq": "~0.3.5"
   },
   "devDependencies": {
     "mocha": "~1.12.1",
