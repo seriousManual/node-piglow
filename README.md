@@ -27,6 +27,7 @@ http://www.youtube.com/watch?v=s-rD8PfAke8
 * [Adressing](#adressing)
 * [Transactions](#transactions)
 * [Animations](#animations)
+* [CLI](#command-line-interface)
 * [Mocking](#mocking)
 * [Used in](#used-in)
 
@@ -172,6 +173,17 @@ Do you like your piglow animated?
 
 Checkout [piglow-animations](https://www.npmjs.org/package/piglow-animations)!
 
+## Command-Line-Interface
+
+[node-piglow-cli](https://www.npmjs.org/package/piglow-animations-cli) wraps piglow and offers a command line interface. You can than invoke the piglow like this (lights up the red LEDs):
+```
+$ piglow --red
+```
+
+Possible use cases:
+* use it in your Makefile to indicate a sucessfull built
+* use it in your CI server to indicate failed (or sucessfull) built
+* ...
 
 ## Mocking
 
