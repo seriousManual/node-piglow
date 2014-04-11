@@ -175,7 +175,7 @@ Checkout [piglow-animations](https://www.npmjs.org/package/piglow-animations)!
 
 ## Command-Line-Interface
 
-[node-piglow-cli](https://www.npmjs.org/package/piglow-animations-cli) wraps piglow and offers a command line interface. You can than invoke the piglow like this (lights up the red LEDs):
+[node-piglow-cli](https://www.npmjs.org/package/piglow-cli) wraps piglow and offers a command line interface. You can than invoke the piglow like this (lights up the red LEDs):
 ```
 $ piglow --red
 ```
