@@ -166,12 +166,10 @@ This benefits performance especially when the LEDs are changed in high frequence
 
 ## Animations
 
-Do you like your piglow animated?
+Do you like your piglow animated? Checkout [piglow-animations](https://www.npmjs.org/package/piglow-animations)!
 <p align="center">
     <img src="https://raw.githubusercontent.com/zaphod1984/node-piglow-animations/master/pics/animation.gif" />
 </p>
-
-Checkout [piglow-animations](https://www.npmjs.org/package/piglow-animations)!
 
 ## Command-Line-Interface
 
