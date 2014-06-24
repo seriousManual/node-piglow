@@ -51,7 +51,7 @@ i2c-dev
 ````
 
 ````bash
-$ sudo vi /etc/modprobe.d/raspi-blacklist.confa
+$ sudo vi /etc/modprobe.d/raspi-blacklist.conf
 ````
 
 Comment out blacklist i2c-bcm2708
