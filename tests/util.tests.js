@@ -71,7 +71,7 @@ describe('util', function () {
                 expect(processValue(0.99)).to.equal(252);
             });
 
-            it('should interprete 1 not as an percentage value', function () {
+            it('should not interprete 1 as an percentage value', function () {
                 expect(processValue(1)).to.equal(1);
             });
         });

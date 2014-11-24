@@ -10,14 +10,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "i2c": "~0.1.4",
-    "seq": "~0.3.5",
-    "sigmund": "~1.0.0"
+    "i2c": "^0.1.6",
+    "sigmund": "^1.0.0"
   },
   "devDependencies": {
-    "mocha": "~1.12.1",
-    "chai": "~1.7.2",
-    "sandboxed-module": "~0.3.0"
+    "mocha": "^1.12.1",
+    "chai": "^1.7.2",
+    "sandboxed-module": "^0.3.0"
   },
   "keywords": [
     "pimoroni",
