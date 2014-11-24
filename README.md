@@ -60,7 +60,7 @@ Comment out blacklist i2c-bcm2708
 
 ## Invocation
 
-```
+```javascript
 var piGlow = require('piglow');
 
 //callback fires when board is initialized
@@ -82,7 +82,7 @@ To each LED a brightness value between 0 (off) and 255 (freakin' bright) can be 
 If one preferrs percentage values, as a convenience function all values smaller than 1 are treated as percentage values. Note that the value of '1' is not treated as 100% but as the brightness value of 1!
 
 ### Individual LEDs
-```
+```javascript
 //parameter sets the brightness:
 pi.l_0_0 = 100; //sets LED 1 of leg 1 to a brightness of 100 (of 255)
 pi.l_0_1 = 10; //sets LED 2 of leg 1 to a brightness of 10
@@ -95,7 +95,7 @@ pi.l_0_0; //sets LED 1 of leg 1 to a brightness of 255
 ```
 
 ### Legs
-```
+```javascript
 pi.leg_0 = 100; //sets all LEDs of leg 1 to a brightness of 100
 
 //shorthand
@@ -103,7 +103,7 @@ pi.leg_0; //sets all LEDs of leg 1 to 255
 ```
 
 ### Rings
-```
+```javascript
 pi.ring_0 = 100; //sets LED 1 of leg 1, LED 1 of leg 2 and LED 1 of leg 3 to 100
 
 //shorthand
@@ -111,7 +111,7 @@ pi.ring_0; //sets LED 1 of leg 1, LED 1 of leg 1 and LED 1 of leg 2 to 255
 ```
 
 As the rings are distinguishable by color (order from outer ring to the inner: red, orange, yellow, green, blue, white), they can be adressed via the rings color:
-```
+```javascript
 pi.red = 100; //sets the first ring to a brightness of 100
 
 //shorthand
@@ -120,7 +120,7 @@ pi.red; //sets the first ring to maximum brightness
 
 
 ### All LEDs
-```
+```javascript
 pi.all = 100; //set all LEDs to 100
 
 //shorthand
@@ -130,7 +130,7 @@ pi.reset; //set all LEDs to 0
 ```
 
 ### Random
-```
+```javascript
 pi.random = 0.5;
 
 //shorthand
@@ -144,7 +144,7 @@ The brightness is calculated via this formula: `parseInt(MAX_VALUE / 2 + (MAX_VA
 Each parameter that is set causes the backend to transfer the complete set of values to the piglow board.
 Thus the following operation would cause three write operations:
 
-```
+```javascript
 pi.l_0_1 = 100;
 pi.l_0_2 = 100;
 pi.l_0_3 = 100;
@@ -152,7 +152,7 @@ pi.l_0_3 = 100;
 
 The piglow-interface offers the possibility to open up a transaction and to commit it when all changes have been made. So the following code will cause only one write to the hardware board:
 
-```
+```javascript
 pi.startTransaction();
 pi.l_0_1 = 100;
 pi.l_0_2 = 100;
@@ -172,7 +172,7 @@ Do you like your piglow animated? Checkout [piglow-animations](https://www.npmjs
 ## Command-Line-Interface
 
 [node-piglow-cli](https://www.npmjs.org/package/piglow-cli) wraps piglow and offers a command line interface. You can than invoke the piglow like this (lights up the red LEDs):
-```
+```bash
 $ piglow --red
 ```
 
@@ -185,7 +185,7 @@ Possible use cases:
 
 This module also exposes its internal structure, with the possibility to invoke the piGlow interface with a injected mocking backend.
 There are two backends, `BackendMock` prints the piglow data as JSON, `BackendMockPrettyPrint` structures the data in a readable way.
-```
+```javascript
 var piGlow = require('piglow');
 var PiGlowBackendMock = piGlow.BackendMock;
 var piGlowInterface = piGLow.piGlowInterface;
@@ -199,7 +199,7 @@ myInterface.ring_0 = 255;
 
 This way the module can be used in a non raspi environment for development or with a testing mock for unit tests.
 To implement your own mocks follow this interface:
-```
+```javascript
 function PiGlowMock() {}
 
 PiGlowMock.prototype.update = function(piGlowConfiguration, callback) {
