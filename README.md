@@ -160,7 +160,7 @@ pi.l_0_3 = 100;
 pi.commitTransaction();
 ```
 
-This benefits performance especially when the LEDs are changed in high frequence.
+This benefits performance especially when the LEDs are changed in high frequency.
 
 ## Animations
 
