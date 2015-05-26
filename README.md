@@ -215,5 +215,7 @@ PiGlowMock.prototype.update = function(piGlowConfiguration, callback) {
 ```
 
 ## Used in
-- [piglow-system](https://www.npmjs.com/package/piglow-system)
+- *[piglow-system](https://www.npmjs.com/package/piglow-system)*
+  a system utlity tool that shows metrics about your system 
 - [piglow-clock](https://www.npmjs.com/package/piglow-clock)
+  a binary watch implemented via the piglow
