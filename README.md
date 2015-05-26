@@ -215,5 +215,5 @@ PiGlowMock.prototype.update = function(piGlowConfiguration, callback) {
 ```
 
 ## Used in
-- **piglow-system** https://github.com/zaphod1984/node-piglow-system
-- **piglow-clock** https://github.com/zaphod1984/node-piglow-clock
+- [piglow-system](https://www.npmjs.com/package/piglow-system)
+- [piglow-clock](https://www.npmjs.com/package/piglow-clock)
