@@ -6,7 +6,7 @@
   "author": "Manuel Ernst <zaphod84@gmx.de>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zaphod1984/node-piglow"
+    "url": "https://github.com/seriousManual/node-piglow"
   },
   "license": "MIT",
   "dependencies": {
