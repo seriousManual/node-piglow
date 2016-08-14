@@ -14,9 +14,9 @@
     "sigmund": "^1.0.0"
   },
   "devDependencies": {
-    "mocha": "^1.12.1",
-    "chai": "^1.7.2",
-    "sandboxed-module": "^0.3.0"
+    "mocha": "^3.0.2",
+    "chai": "^3.5.0",
+    "sandboxed-module": "^2.0.3"
   },
   "keywords": [
     "pimoroni",
