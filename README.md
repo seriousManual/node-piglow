@@ -2,6 +2,8 @@
 
 **v2 does not contain the commandline interface and the animations interface anymore. They are moved to two seperate modules. ([node-piglow-cli](https://github.com/zaphod1984/node-piglow-cli) and [node-piglow-animations](https://github.com/zaphod1984/node-piglow-animations))**
 
+**v3 removes node 0.10 and 0.12 support and only works for node versions >4**
+
 [![NPM](https://nodei.co/npm/piglow.png)](https://nodei.co/npm/piglow/)
 
 [![NPM](https://nodei.co/npm-dl/piglow.png?months=3)](https://nodei.co/npm/piglow/)
